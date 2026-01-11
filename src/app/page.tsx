@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { ThemeToggle } from '@/components/ThemeToggle'
+import { MobileMenu } from '@/components/MobileMenu'
 import { LiveMarketIndicators, LiveFinancialNews, LiveCurrencyExchange } from '@/components/LiveData'
 import { CalculatorButton, NewsletterButton } from '@/components/AnalyticsButtons'
 import { HeroImage, CardImage, AuthorAvatar } from '@/components/SimpleImage'
@@ -31,6 +32,7 @@ export default function Home() {
                 </Link>
               </nav>
               <ThemeToggle />
+              <MobileMenu />
             </div>
           </div>
         </div>
