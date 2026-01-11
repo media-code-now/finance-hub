@@ -162,32 +162,32 @@ export function LiveNewsFeed({ searchQuery = '', selectedSource = 'all' }: LiveN
   return (
     <div className="space-y-8">
       {/* Category Filter */}
-      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6">
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-4 sm:p-6">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4 sm:mb-6 gap-3">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
             Live Financial News
           </h2>
           {lastUpdate && (
-            <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
+            <div className="flex items-center text-xs sm:text-sm text-gray-500 dark:text-gray-400">
               <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse mr-2"></div>
-              Last updated: {lastUpdate.toLocaleTimeString()}
+              <span className="whitespace-nowrap">Updated: {lastUpdate.toLocaleTimeString()}</span>
             </div>
           )}
         </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-3">
+        <div className="flex overflow-x-auto gap-2 pb-2 scrollbar-hide">
           {categories.map((category) => (
             <button
               key={category.id}
               onClick={() => setSelectedCategory(category.id)}
-              className={`p-3 rounded-lg text-sm font-medium transition-all duration-200 flex flex-col items-center space-y-2 ${
+              className={`flex-shrink-0 px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 flex items-center space-x-2 min-w-fit ${
                 selectedCategory === category.id
                   ? 'bg-blue-600 text-white shadow-lg transform scale-105'
                   : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-600'
               }`}
             >
-              <div className="text-blue-500">{category.icon}</div>
-              <span className="text-center leading-tight">{category.name}</span>
+              {category.icon}
+              <span className="whitespace-nowrap">{category.name}</span>
             </button>
           ))}
         </div>
@@ -219,7 +219,7 @@ export function LiveNewsFeed({ searchQuery = '', selectedSource = 'all' }: LiveN
                   className="block group"
                 >
                   {article.urlToImage && (
-                    <div className="h-48 overflow-hidden">
+                    <div className="h-40 sm:h-48 overflow-hidden">
                       <img
                         src={article.urlToImage}
                         alt={article.title}
@@ -228,9 +228,9 @@ export function LiveNewsFeed({ searchQuery = '', selectedSource = 'all' }: LiveN
                     </div>
                   )}
                   
-                  <div className="p-6">
+                  <div className="p-4 sm:p-6">
                     <div className="flex items-center justify-between mb-3">
-                      <span className="inline-block bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs font-medium px-3 py-1 rounded-full">
+                      <span className="inline-block bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs font-medium px-2 sm:px-3 py-1 rounded-full">
                         {article.source}
                       </span>
                       <span className="text-xs text-gray-500 dark:text-gray-400">
@@ -238,11 +238,11 @@ export function LiveNewsFeed({ searchQuery = '', selectedSource = 'all' }: LiveN
                       </span>
                     </div>
                     
-                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-3 line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                    <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white mb-2 sm:mb-3 line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                       {article.title}
                     </h3>
                     
-                    <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-4 line-clamp-3">
+                    <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-3 sm:mb-4 line-clamp-2 sm:line-clamp-3">
                       {article.description}
                     </p>
                     

@@ -9,25 +9,25 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
       {/* Header */}
-      <header className="bg-white dark:bg-gray-900 shadow-lg">
+      <header className="bg-white dark:bg-gray-900 shadow-lg sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-6">
+          <div className="flex justify-between items-center py-4">
             <div className="flex items-center">
-              <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Finance Hub</h1>
+              <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">Finance Hub</h1>
             </div>
-            <div className="flex items-center space-x-4">
-              <nav className="hidden md:flex space-x-8">
-                <Link href="/" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium">
+            <div className="flex items-center space-x-2 sm:space-x-4">
+              <nav className="hidden md:flex space-x-4 lg:space-x-8">
+                <Link href="/" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">
                   Home
                 </Link>
-                <Link href="/calculators" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium">
+                <Link href="/calculators" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">
                   Calculators
                 </Link>
-                <Link href="/tools" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium">
+                <Link href="/tools" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">
                   Tools
                 </Link>
-                <Link href="/blog" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium">
-                  Financial News
+                <Link href="/blog" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                  News
                 </Link>
               </nav>
               <ThemeToggle />
@@ -50,17 +50,17 @@ export default function Home() {
         
         {/* Content */}
         <div className="relative z-10 flex items-center justify-center min-h-screen">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
             <div className="text-center">
-              <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-8 drop-shadow-2xl">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 sm:mb-8 drop-shadow-2xl leading-tight">
                 Master Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-purple-300">Financial Future</span>
               </h1>
-              <p className="text-xl md:text-2xl text-blue-100 mb-12 max-w-4xl mx-auto drop-shadow-lg leading-relaxed">
+              <p className="text-lg sm:text-xl md:text-2xl text-blue-100 mb-8 sm:mb-12 max-w-4xl mx-auto drop-shadow-lg leading-relaxed px-4">
                 Unlock financial freedom with our comprehensive suite of calculators, real-time market data, 
                 and expert insights. Make smarter money decisions with tools trusted by thousands.
               </p>
-              <div className="flex flex-col sm:flex-row justify-center gap-6 mb-16">
-                <Link href="/calculators" className="group bg-white text-blue-600 px-12 py-5 rounded-2xl text-lg font-bold hover:bg-gray-50 transition-all duration-300 shadow-2xl hover:shadow-blue-500/25 transform hover:-translate-y-2 hover:scale-105">
+              <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 mb-12 sm:mb-16">
+                <Link href="/calculators" className="group bg-white text-blue-600 px-8 sm:px-12 py-4 sm:py-5 rounded-2xl text-base sm:text-lg font-bold hover:bg-gray-50 transition-all duration-300 shadow-2xl hover:shadow-blue-500/25 transform hover:-translate-y-1 hover:scale-105">
                   <span className="flex items-center justify-center">
                     Financial Tools
                     <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -68,7 +68,7 @@ export default function Home() {
                     </svg>
                   </span>
                 </Link>
-                <Link href="/blog" className="group bg-white/10 border-2 border-white/40 text-white px-12 py-5 rounded-2xl text-lg font-bold hover:bg-white/20 transition-all duration-300 backdrop-blur-lg shadow-2xl hover:shadow-white/25 transform hover:-translate-y-2">
+                <Link href="/blog" className="group bg-white/10 border-2 border-white/40 text-white px-8 sm:px-12 py-4 sm:py-5 rounded-2xl text-base sm:text-lg font-bold hover:bg-white/20 transition-all duration-300 backdrop-blur-lg shadow-2xl hover:shadow-white/25 transform hover:-translate-y-1">
                   <span className="flex items-center justify-center">
                     Live News Feed
                     <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -79,33 +79,33 @@ export default function Home() {
               </div>
               
               {/* Value Propositions */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
-                <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/30 hover:border-white/50 transition-all duration-300 transform hover:-translate-y-1 hover:bg-white/15">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mt-12 sm:mt-16">
+                <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 sm:p-8 border border-white/30 hover:border-white/50 transition-all duration-300 transform hover:-translate-y-1 hover:bg-white/15">
                   <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mb-6 mx-auto">
                     <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-4">Precision Tools</h3>
-                  <p className="text-blue-100 leading-relaxed">Advanced calculators with real-time data for accurate financial planning</p>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">Precision Tools</h3>
+                  <p className="text-blue-100 leading-relaxed text-sm sm:text-base">Advanced calculators with real-time data for accurate financial planning</p>
                 </div>
-                <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/30 hover:border-white/50 transition-all duration-300 transform hover:-translate-y-1 hover:bg-white/15">
+                <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 sm:p-8 border border-white/30 hover:border-white/50 transition-all duration-300 transform hover:-translate-y-1 hover:bg-white/15">
                   <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mb-6 mx-auto">
                     <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2V9a2 2 0 00-2-2h-2a2 2 0 00-2-2" />
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-4">Market Intelligence</h3>
-                  <p className="text-blue-100 leading-relaxed">Live market indicators and expert analysis to guide your decisions</p>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">Market Intelligence</h3>
+                  <p className="text-blue-100 leading-relaxed text-sm sm:text-base">Live market indicators and expert analysis to guide your decisions</p>
                 </div>
-                <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/30 hover:border-white/50 transition-all duration-300 transform hover:-translate-y-1 hover:bg-white/15">
+                <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 sm:p-8 border border-white/30 hover:border-white/50 transition-all duration-300 transform hover:-translate-y-1 hover:bg-white/15">
                   <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mb-6 mx-auto">
                     <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-4">Secure & Private</h3>
-                  <p className="text-blue-100 leading-relaxed">All calculations run locally in your browser - your data stays private</p>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">Secure & Private</h3>
+                  <p className="text-blue-100 leading-relaxed text-sm sm:text-base">All calculations run locally in your browser - your data stays private</p>
                 </div>
               </div>
             </div>
