@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Head from 'next/head'
-import { ThemeToggle } from '@/components/ThemeToggle'
+import { Header } from '@/components/Header'
 
 const IconComponent = ({ iconName, className = "w-6 h-6" }: { iconName: string, className?: string }) => {
   const iconMap: { [key: string]: React.ReactNode } = {
@@ -239,24 +239,7 @@ export default function ToolsPage() {
         <meta name="keywords" content="financial calculators, mortgage calculator, investment calculator, retirement planning, loan calculator, budget planner" />
       </Head>
       <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-      {/* Header */}
-      <header className="bg-white dark:bg-gray-800 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <Link href="/" className="text-2xl font-bold text-gray-900 dark:text-white">Finance Hub</Link>
-            <div className="flex items-center space-x-4">
-              <nav className="hidden md:flex space-x-8">
-                <Link href="/" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Home</Link>
-                <Link href="/calculators" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Calculators</Link>
-                <Link href="/tools" className="text-blue-600 dark:text-blue-400 font-semibold">Tools</Link>
-                <Link href="/blog" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Blog</Link>
-                <Link href="/about" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">About</Link>
-              </nav>
-              <ThemeToggle />
-            </div>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">

@@ -1,6 +1,5 @@
 import Link from 'next/link'
-import { ThemeToggle } from '@/components/ThemeToggle'
-import { MobileMenu } from '@/components/MobileMenu'
+import { Header } from '@/components/Header'
 import { LiveMarketIndicators, LiveFinancialNews, LiveCurrencyExchange } from '@/components/LiveData'
 import { CalculatorButton, NewsletterButton } from '@/components/AnalyticsButtons'
 import { HeroImage, CardImage, AuthorAvatar } from '@/components/SimpleImage'
@@ -9,34 +8,7 @@ import { HERO_IMAGES, FEATURE_IMAGES, getCalculatorImage, getBlogPostImage } fro
 export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
-      {/* Header */}
-      <header className="bg-white dark:bg-gray-900 shadow-lg sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <div className="flex items-center">
-              <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">Finance Hub</h1>
-            </div>
-            <div className="flex items-center space-x-2 sm:space-x-4">
-              <nav className="hidden md:flex space-x-4 lg:space-x-8">
-                <Link href="/" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">
-                  Home
-                </Link>
-                <Link href="/calculators" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">
-                  Calculators
-                </Link>
-                <Link href="/tools" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">
-                  Tools
-                </Link>
-                <Link href="/blog" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">
-                  News
-                </Link>
-              </nav>
-              <ThemeToggle />
-              <MobileMenu />
-            </div>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       {/* Enhanced Hero Section with Background Image */}
       <section className="relative min-h-screen overflow-hidden">
