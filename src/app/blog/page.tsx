@@ -40,7 +40,7 @@ export default function BlogPage() {
             {/* Live Update Indicator */}
             <div className="mt-6 flex items-center justify-center text-green-300">
               <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse mr-2"></div>
-              <span className="text-sm font-medium">Live Updates Every 15 Minutes</span>
+              <span className="text-sm font-medium">Live Updates Every 5 Minutes</span>
             </div>
           </div>
         </div>

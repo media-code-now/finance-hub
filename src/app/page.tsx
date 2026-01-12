@@ -4,6 +4,8 @@ import { LiveMarketIndicators, LiveFinancialNews, LiveCurrencyExchange } from '@
 import { CalculatorButton, NewsletterButton } from '@/components/AnalyticsButtons'
 import { HeroImage, CardImage, AuthorAvatar } from '@/components/SimpleImage'
 import { HERO_IMAGES, FEATURE_IMAGES, getCalculatorImage, getBlogPostImage } from '@/lib/images'
+import { LivePriceCard } from '@/components/LivePriceCard'
+import { MarketSentiment } from '@/components/MarketSentiment'
 
 export default function Home() {
   return (
@@ -87,10 +89,219 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Live Market Indicators */}
-      <section className="py-12">
+      {/* Live Price Cards - Real-time Market Watchlist */}
+      <section className="py-16 bg-white dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <LiveMarketIndicators />
+          <div className="text-center mb-12">
+            <h3 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              Live Market Watchlist
+            </h3>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              Real-time prices for popular stocks and cryptocurrencies, updated every 30 seconds
+            </p>
+          </div>
+          
+          {/* Mobile Slider */}
+          <div className="md:hidden overflow-x-auto scrollbar-hide pb-4 -mx-4 px-4">
+            <div className="flex gap-4 min-w-min">
+              <div className="w-[280px] flex-shrink-0">
+                <LivePriceCard 
+                  symbol="AAPL" 
+                  name="Apple Inc." 
+                  type="stock"
+                  icon={
+                    <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                    </svg>
+                  }
+                />
+              </div>
+              <div className="w-[280px] flex-shrink-0">
+                <LivePriceCard 
+                  symbol="TSLA" 
+                  name="Tesla Inc." 
+                  type="stock"
+                  icon={
+                    <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 5.362l2.475 4.048h-4.95L12 5.362zm0-2.672L7.89 9.95h8.22L12 2.69zm0 9.698l2.475 4.048h-4.95L12 12.388zm0-2.672l-4.11 7.26h8.22L12 9.716z"/>
+                    </svg>
+                  }
+                />
+              </div>
+              <div className="w-[280px] flex-shrink-0">
+                <LivePriceCard 
+                  symbol="bitcoin" 
+                  name="Bitcoin" 
+                  type="crypto"
+                  icon={
+                    <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M23.638 14.904c-1.602 6.43-8.113 10.34-14.542 8.736C2.67 22.05-1.244 15.525.362 9.105 1.962 2.67 8.475-1.243 14.9.358c6.43 1.605 10.342 8.115 8.738 14.548v-.002zm-6.35-4.613c.24-1.59-.974-2.45-2.64-3.03l.54-2.153-1.315-.33-.525 2.107c-.345-.087-.705-.167-1.064-.25l.526-2.127-1.32-.33-.54 2.165c-.285-.067-.565-.132-.84-.2l-1.815-.45-.35 1.407s.975.225.955.236c.535.136.63.486.615.766l-1.477 5.92c-.075.166-.24.406-.614.314.015.02-.96-.24-.96-.24l-.66 1.51 1.71.426.93.242-.54 2.19 1.32.327.54-2.17c.36.1.705.19 1.05.273l-.51 2.154 1.32.33.545-2.19c2.24.427 3.93.257 4.64-1.774.57-1.637-.03-2.58-1.217-3.196.854-.193 1.5-.76 1.68-1.93h.01zm-3.01 4.22c-.404 1.64-3.157.75-4.05.53l.72-2.9c.896.23 3.757.67 3.33 2.37zm.41-4.24c-.37 1.49-2.662.735-3.405.55l.654-2.64c.744.18 3.137.524 2.75 2.084v.006z"/>
+                    </svg>
+                  }
+                />
+              </div>
+              <div className="w-[280px] flex-shrink-0">
+                <LivePriceCard 
+                  symbol="ethereum" 
+                  name="Ethereum" 
+                  type="crypto"
+                  icon={
+                    <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M11.944 17.97L4.58 13.62 11.943 24l7.37-10.38-7.372 4.35h.003zM12.056 0L4.69 12.223l7.365 4.354 7.365-4.35L12.056 0z"/>
+                    </svg>
+                  }
+                />
+              </div>
+              <div className="w-[280px] flex-shrink-0">
+                <LivePriceCard 
+                  symbol="MSFT" 
+                  name="Microsoft Corp." 
+                  type="stock"
+                  icon={
+                    <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M11.4 24H0V12.6h11.4V24zM24 24H12.6V12.6H24V24zM11.4 11.4H0V0h11.4v11.4zm12.6 0H12.6V0H24v11.4z"/>
+                    </svg>
+                  }
+                />
+              </div>
+              <div className="w-[280px] flex-shrink-0">
+                <LivePriceCard 
+                  symbol="GOOGL" 
+                  name="Alphabet Inc." 
+                  type="stock"
+                  icon={
+                    <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                      <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                      <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                      <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                    </svg>
+                  }
+                />
+              </div>
+              <div className="w-[280px] flex-shrink-0">
+                <LivePriceCard 
+                  symbol="solana" 
+                  name="Solana" 
+                  type="crypto"
+                  icon={
+                    <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M7.5 21c-.28 0-.53-.11-.71-.29-.19-.18-.29-.43-.29-.71 0-.28.1-.53.29-.71l14-14c.18-.18.43-.29.71-.29.28 0 .53.11.71.29.19.18.29.43.29.71 0 .28-.1.53-.29.71l-14 14c-.18.18-.43.29-.71.29zm0-5c-.28 0-.53-.11-.71-.29-.19-.18-.29-.43-.29-.71 0-.28.1-.53.29-.71l14-14c.18-.18.43-.29.71-.29.28 0 .53.11.71.29.19.18.29.43.29.71 0 .28-.1.53-.29.71l-14 14c-.18.18-.43.29-.71.29z"/>
+                    </svg>
+                  }
+                />
+              </div>
+              <div className="w-[280px] flex-shrink-0">
+                <LivePriceCard 
+                  symbol="cardano" 
+                  name="Cardano" 
+                  type="crypto"
+                  icon={
+                    <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 22C6.486 22 2 17.514 2 12S6.486 2 12 2s10 4.486 10 10-4.486 10-10 10zm1-10c0-.552-.448-1-1-1s-1 .448-1 1 .448 1 1 1 1-.448 1-1zm3-3c0-.552-.448-1-1-1s-1 .448-1 1 .448 1 1 1 1-.448 1-1zm-6 0c0-.552-.448-1-1-1s-1 .448-1 1 .448 1 1 1 1-.448 1-1zm3 6c0-.552-.448-1-1-1s-1 .448-1 1 .448 1 1 1 1-.448 1-1z"/>
+                    </svg>
+                  }
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Desktop Grid */}
+          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <LivePriceCard 
+              symbol="AAPL" 
+              name="Apple Inc." 
+              type="stock"
+              icon={
+                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                </svg>
+              }
+            />
+            <LivePriceCard 
+              symbol="TSLA" 
+              name="Tesla Inc." 
+              type="stock"
+              icon={
+                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 5.362l2.475 4.048h-4.95L12 5.362zm0-2.672L7.89 9.95h8.22L12 2.69zm0 9.698l2.475 4.048h-4.95L12 12.388zm0-2.672l-4.11 7.26h8.22L12 9.716z"/>
+                </svg>
+              }
+            />
+            <LivePriceCard 
+              symbol="bitcoin" 
+              name="Bitcoin" 
+              type="crypto"
+              icon={
+                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M23.638 14.904c-1.602 6.43-8.113 10.34-14.542 8.736C2.67 22.05-1.244 15.525.362 9.105 1.962 2.67 8.475-1.243 14.9.358c6.43 1.605 10.342 8.115 8.738 14.548v-.002zm-6.35-4.613c.24-1.59-.974-2.45-2.64-3.03l.54-2.153-1.315-.33-.525 2.107c-.345-.087-.705-.167-1.064-.25l.526-2.127-1.32-.33-.54 2.165c-.285-.067-.565-.132-.84-.2l-1.815-.45-.35 1.407s.975.225.955.236c.535.136.63.486.615.766l-1.477 5.92c-.075.166-.24.406-.614.314.015.02-.96-.24-.96-.24l-.66 1.51 1.71.426.93.242-.54 2.19 1.32.327.54-2.17c.36.1.705.19 1.05.273l-.51 2.154 1.32.33.545-2.19c2.24.427 3.93.257 4.64-1.774.57-1.637-.03-2.58-1.217-3.196.854-.193 1.5-.76 1.68-1.93h.01zm-3.01 4.22c-.404 1.64-3.157.75-4.05.53l.72-2.9c.896.23 3.757.67 3.33 2.37zm.41-4.24c-.37 1.49-2.662.735-3.405.55l.654-2.64c.744.18 3.137.524 2.75 2.084v.006z"/>
+                </svg>
+              }
+            />
+            <LivePriceCard 
+              symbol="ethereum" 
+              name="Ethereum" 
+              type="crypto"
+              icon={
+                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M11.944 17.97L4.58 13.62 11.943 24l7.37-10.38-7.372 4.35h.003zM12.056 0L4.69 12.223l7.365 4.354 7.365-4.35L12.056 0z"/>
+                </svg>
+              }
+            />
+          </div>
+
+          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
+            <LivePriceCard 
+              symbol="MSFT" 
+              name="Microsoft Corp." 
+              type="stock"
+              icon={
+                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M11.4 24H0V12.6h11.4V24zM24 24H12.6V12.6H24V24zM11.4 11.4H0V0h11.4v11.4zm12.6 0H12.6V0H24v11.4z"/>
+                </svg>
+              }
+            />
+            <LivePriceCard 
+              symbol="GOOGL" 
+              name="Alphabet Inc." 
+              type="stock"
+              icon={
+                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                  <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                  <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                  <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                </svg>
+              }
+            />
+            <LivePriceCard 
+              symbol="solana" 
+              name="Solana" 
+              type="crypto"
+              icon={
+                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M7.5 21c-.28 0-.53-.11-.71-.29-.19-.18-.29-.43-.29-.71 0-.28.1-.53.29-.71l14-14c.18-.18.43-.29.71-.29.28 0 .53.11.71.29.19.18.29.43.29.71 0 .28-.1.53-.29.71l-14 14c-.18.18-.43.29-.71.29zm0-5c-.28 0-.53-.11-.71-.29-.19-.18-.29-.43-.29-.71 0-.28.1-.53.29-.71l14-14c.18-.18.43-.29.71-.29.28 0 .53.11.71.29.19.18.29.43.29.71 0 .28-.1.53-.29.71l-14 14c-.18.18-.43.29-.71.29z"/>
+                </svg>
+              }
+            />
+            <LivePriceCard 
+              symbol="cardano" 
+              name="Cardano" 
+              type="crypto"
+              icon={
+                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 22C6.486 22 2 17.514 2 12S6.486 2 12 2s10 4.486 10 10-4.486 10-10 10zm1-10c0-.552-.448-1-1-1s-1 .448-1 1 .448 1 1 1 1-.448 1-1zm3-3c0-.552-.448-1-1-1s-1 .448-1 1 .448 1 1 1 1-.448 1-1zm-6 0c0-.552-.448-1-1-1s-1 .448-1 1 .448 1 1 1 1-.448 1-1zm3 6c0-.552-.448-1-1-1s-1 .448-1 1 .448 1 1 1 1-.448 1-1z"/>
+                </svg>
+              }
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Market Sentiment Indicators */}
+      <section className="py-16 bg-gray-50 dark:bg-gray-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <MarketSentiment />
         </div>
       </section>
 

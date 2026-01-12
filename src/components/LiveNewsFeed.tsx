@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { NewsAPI } from '@/services/api'
 import type { FinancialNews } from '@/services/api'
+import { Toast, NewBadge } from '@/components/NewsNotifications'
 
 interface LiveNewsFeedProps {
   searchQuery?: string
@@ -14,6 +15,8 @@ export function LiveNewsFeed({ searchQuery = '', selectedSource = 'all' }: LiveN
   const [loading, setLoading] = useState(true)
   const [selectedCategory, setSelectedCategory] = useState('general')
   const [lastUpdate, setLastUpdate] = useState<Date | null>(null)
+  const [toastMessage, setToastMessage] = useState<string | null>(null)
+  const [previousNewsCount, setPreviousNewsCount] = useState(0)
 
   const categories = [
     { 
@@ -93,13 +96,17 @@ export function LiveNewsFeed({ searchQuery = '', selectedSource = 'all' }: LiveN
 
   useEffect(() => {
     fetchNews()
-    // Auto-refresh every 15 minutes
-    const interval = setInterval(fetchNews, 15 * 60 * 1000)
+    // Auto-refresh every 5 minutes for more frequent updates
+    const interval = setInterval(() => {
+      fetchNews(true) // Pass true to indicate auto-refresh
+    }, 5 * 60 * 1000)
     return () => clearInterval(interval)
   }, [selectedCategory])
 
-  const fetchNews = async () => {
-    setLoading(true)
+  const fetchNews = async (isAutoRefresh = false) => {
+    if (!isAutoRefresh) {
+      setLoading(true)
+    }
     try {
       let newsData: FinancialNews[]
       
@@ -127,7 +134,14 @@ export function LiveNewsFeed({ searchQuery = '', selectedSource = 'all' }: LiveN
           newsData = await NewsAPI.getMarketNews()
       }
       
+      // Check for new articles if this is an auto-refresh
+      if (isAutoRefresh && newsData.length > previousNewsCount && previousNewsCount > 0) {
+        const newCount = newsData.length - previousNewsCount
+        setToastMessage(`${newCount} new article${newCount > 1 ? 's' : ''} available`)
+      }
+      
       setNews(newsData)
+      setPreviousNewsCount(newsData.length)
       setLastUpdate(new Date())
     } catch (error) {
       console.error('Failed to fetch news:', error)
@@ -161,6 +175,13 @@ export function LiveNewsFeed({ searchQuery = '', selectedSource = 'all' }: LiveN
 
   return (
     <div className="space-y-8">
+      {/* Toast Notification */}
+      {toastMessage && (
+        <Toast 
+          message={toastMessage} 
+          onClose={() => setToastMessage(null)} 
+        />
+      )}
       {/* Category Filter */}
       <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-4 sm:p-6">
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4 sm:mb-6 gap-3">
@@ -171,6 +192,7 @@ export function LiveNewsFeed({ searchQuery = '', selectedSource = 'all' }: LiveN
             <div className="flex items-center text-xs sm:text-sm text-gray-500 dark:text-gray-400">
               <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse mr-2"></div>
               <span className="whitespace-nowrap">Updated: {lastUpdate.toLocaleTimeString()}</span>
+              <span className="ml-2 text-xs">(Auto-refresh: 5 min)</span>
             </div>
           )}
         </div>
@@ -230,9 +252,12 @@ export function LiveNewsFeed({ searchQuery = '', selectedSource = 'all' }: LiveN
                   
                   <div className="p-4 sm:p-6">
                     <div className="flex items-center justify-between mb-3">
-                      <span className="inline-block bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs font-medium px-2 sm:px-3 py-1 rounded-full">
-                        {article.source}
-                      </span>
+                      <div className="flex items-center gap-2">
+                        <span className="inline-block bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs font-medium px-2 sm:px-3 py-1 rounded-full">
+                          {article.source}
+                        </span>
+                        <NewBadge publishedDate={new Date(article.publishedAt)} />
+                      </div>
                       <span className="text-xs text-gray-500 dark:text-gray-400">
                         {formatTimeAgo(article.publishedAt)}
                       </span>

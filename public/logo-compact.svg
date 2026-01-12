@@ -1,0 +1,30 @@
+<svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Compact version for favicon -->
+  <rect width="60" height="60" rx="12" fill="url(#gradient1)" />
+  
+  <defs>
+    <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Dollar Sign -->
+  <path d="M30 12 L30 10 M30 48 L30 50" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  <path d="M27 16 C27 14 27 12 30 12 C33 12 35 13 35 16 C35 19 33 21 30 22 L27 23 C25 24 23 25 23 28 C23 31 25 33 27 33 L30 33 C33 33 35 34 35 37 C35 40 33 41 30 42 C27 43 25 42 25 39" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  
+  <!-- Mini Bars -->
+  <rect x="13" y="40" width="4" height="10" fill="white" opacity="0.9" rx="1"/>
+  <rect x="20" y="35" width="4" height="15" fill="white" opacity="0.9" rx="1"/>
+  <rect x="40" y="32" width="4" height="18" fill="white" opacity="0.9" rx="1"/>
+  <rect x="47" y="28" width="4" height="22" fill="white" opacity="0.9" rx="1"/>
+  
+  <!-- Trend Line -->
+  <path d="M10 45 L18 38 L24 40 L30 25 L38 27 L43 24 L50 20" 
+        stroke="white" 
+        stroke-width="2" 
+        fill="none" 
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        opacity="0.8"/>
+</svg>

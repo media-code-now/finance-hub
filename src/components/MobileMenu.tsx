@@ -10,6 +10,7 @@ export function MobileMenu() {
     { href: '/', label: 'Home' },
     { href: '/calculators', label: 'Calculators' },
     { href: '/tools', label: 'Tools' },
+    { href: '/charts', label: 'Charts' },
     { href: '/blog', label: 'News' },
     { href: '/about', label: 'About' },
     { href: '/contact', label: 'Contact' },

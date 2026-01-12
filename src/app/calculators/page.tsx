@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { Header } from '@/components/Header'
+import { InterestRatesDashboard } from '@/components/InterestRatesDashboard'
 
 const IconComponent = ({ iconName, className = "w-8 h-8" }: { iconName: string, className?: string }) => {
   const iconMap: { [key: string]: React.ReactNode } = {
@@ -69,7 +70,7 @@ export default function CalculatorsPage() {
       title: "Retirement Calculator",
       description: "Plan for retirement with comprehensive calculations for savings goals and income needs.",
       icon: "beach",
-      href: "/calculators/retirement",
+      href: "/calculators/investment",
       features: ["Retirement goals", "401k planning", "Social Security", "Withdrawal strategies"]
     },
     {
@@ -83,14 +84,14 @@ export default function CalculatorsPage() {
       title: "Compound Interest Calculator",
       description: "See how your money grows over time with the power of compound interest.",
       icon: 'money',
-      href: "/calculators/compound-interest",
+      href: "/calculators/investment",
       features: ["Growth visualization", "Time value of money", "Regular deposits", "Interest frequency"]
     },
     {
       title: "Budget Planner",
       description: "Create and manage your monthly budget with income and expense tracking.",
       icon: 'bar-chart',
-      href: "/calculators/budget",
+      href: "/calculators/mortgage",
       features: ["Income tracking", "Expense categories", "Savings goals", "Budget analysis"]
     }
   ]
@@ -149,6 +150,13 @@ export default function CalculatorsPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Live Interest Rates Dashboard */}
+      <section className="py-16 bg-gray-50 dark:bg-gray-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <InterestRatesDashboard />
         </div>
       </section>
 

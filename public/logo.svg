@@ -1,0 +1,56 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="100" cy="100" r="95" fill="url(#gradient1)" />
+  
+  <!-- Gradient Definitions -->
+  <defs>
+    <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#60a5fa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#a78bfa;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Main Icon - Rising Chart with Dollar Sign -->
+  <!-- Dollar Sign -->
+  <path d="M100 50 L100 45 M100 135 L100 140" stroke="white" stroke-width="4" stroke-linecap="round"/>
+  <path d="M95 60 C95 55 95 50 100 50 C105 50 110 52 110 60 C110 67 105 70 100 72 L95 74 C90 76 85 79 85 87 C85 95 90 98 95 98 L100 98 C105 98 110 100 110 108 C110 116 105 118 100 120 C95 122 90 120 90 115" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  
+  <!-- Rising Bar Chart -->
+  <!-- Bar 1 -->
+  <rect x="50" y="110" width="12" height="30" fill="white" opacity="0.9" rx="2"/>
+  <!-- Bar 2 -->
+  <rect x="68" y="95" width="12" height="45" fill="white" opacity="0.9" rx="2"/>
+  <!-- Bar 3 -->
+  <rect x="130" y="85" width="12" height="55" fill="white" opacity="0.9" rx="2"/>
+  <!-- Bar 4 -->
+  <rect x="148" y="70" width="12" height="70" fill="white" opacity="0.9" rx="2"/>
+  
+  <!-- Trend Line -->
+  <path d="M45 125 L62 105 L80 110 L100 75 L125 80 L138 70 L155 55" 
+        stroke="white" 
+        stroke-width="3" 
+        fill="none" 
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        opacity="0.8"/>
+  
+  <!-- Arrow at end of trend line -->
+  <path d="M155 55 L150 58 L153 63" 
+        stroke="white" 
+        stroke-width="3" 
+        fill="none" 
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        opacity="0.8"/>
+  
+  <!-- Outer Ring -->
+  <circle cx="100" cy="100" r="95" stroke="url(#gradient2)" stroke-width="3" fill="none" opacity="0.6"/>
+  
+  <!-- Small circles for decoration -->
+  <circle cx="155" cy="55" r="4" fill="white" opacity="0.9"/>
+  <circle cx="45" cy="125" r="4" fill="white" opacity="0.9"/>
+</svg>
