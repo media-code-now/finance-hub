@@ -202,7 +202,7 @@ const tools: Tool[] = [
     title: 'College Savings Calculator',
     description: 'Plan and save for your child\'s college education expenses',
     icon: '🎓',
-    href: '/calculators/college-savings',
+    href: '/calculators/investment',
     category: 'Education',
     popular: false,
     difficulty: 'Intermediate',
