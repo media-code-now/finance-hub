@@ -513,7 +513,7 @@ export default function Home() {
                       </div>
                     </div>
                     <Link
-                      href="/blog/2026-investment-outlook"
+                      href="/blog"
                       className="inline-flex items-center px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white text-sm font-semibold rounded-lg transition-colors group"
                     >
                       Read Analysis
@@ -546,7 +546,7 @@ export default function Home() {
                     <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">Federal Reserve officials hint at monetary policy adjustments...</p>
                     <div className="flex items-center justify-between">
                       <span className="text-xs text-gray-500 dark:text-gray-400">2 hours ago</span>
-                      <Link href="/news/fed-rate-signals" className="text-xs text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-semibold transition-colors">
+                      <Link href="/blog" className="text-xs text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-semibold transition-colors">
                         Read more →
                       </Link>
                     </div>
@@ -572,7 +572,7 @@ export default function Home() {
                     <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">Major financial institutions increase crypto exposure through ETF products...</p>
                     <div className="flex items-center justify-between">
                       <span className="text-xs text-gray-500 dark:text-gray-400">4 hours ago</span>
-                      <Link href="/news/bitcoin-etf-adoption" className="text-xs text-purple-600 dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-300 font-semibold transition-colors">
+                      <Link href="/blog" className="text-xs text-purple-600 dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-300 font-semibold transition-colors">
                         Read more →
                       </Link>
                     </div>
@@ -598,7 +598,7 @@ export default function Home() {
                     <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">Environmental and social investing continues strong growth trajectory...</p>
                     <div className="flex items-center justify-between">
                       <span className="text-xs text-gray-500 dark:text-gray-400">6 hours ago</span>
-                      <Link href="/news/esg-funds-milestone" className="text-xs text-green-600 dark:text-green-400 hover:text-green-800 dark:hover:text-green-300 font-semibold transition-colors">
+                      <Link href="/blog" className="text-xs text-green-600 dark:text-green-400 hover:text-green-800 dark:hover:text-green-300 font-semibold transition-colors">
                         Read more →
                       </Link>
                     </div>
