@@ -6,10 +6,22 @@ import { HeroImage, CardImage, AuthorAvatar } from '@/components/SimpleImage'
 import { HERO_IMAGES, FEATURE_IMAGES, getCalculatorImage, getBlogPostImage } from '@/lib/images'
 import { LivePriceCard } from '@/components/LivePriceCard'
 import { MarketSentiment } from '@/components/MarketSentiment'
+import { organizationSchema, financialServiceSchema } from '@/lib/schema'
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
+    <>
+      {/* Schema.org structured data for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(financialServiceSchema) }}
+      />
+      
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
       <Header />
 
       {/* Enhanced Hero Section with Background Image */}
@@ -755,6 +767,7 @@ export default function Home() {
           </div>
         </div>
       </footer>
-    </div>
+      </div>
+    </>
   )
 }

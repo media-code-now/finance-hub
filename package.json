@@ -21,6 +21,7 @@
     "postcss": "^8.4.31",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "schema-dts": "^1.1.5",
     "tailwindcss": "^3.4.1",
     "typescript": "^5",
     "xml2js": "^0.6.2"

@@ -3,8 +3,14 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { ThemeToggle } from '@/components/ThemeToggle'
+import FinancialDisclaimer from '@/components/FinancialDisclaimer'
+import TrustBadges from '@/components/TrustBadges'
+import AuthorByline from '@/components/AuthorByline'
+import { getAuthor } from '@/data/authors'
 
 export default function MortgageCalculator() {
+  const author = getAuthor('james-mitchell') // Real estate & mortgage specialist
+  
   const [homePrice, setHomePrice] = useState<string>('400000')
   const [downPayment, setDownPayment] = useState<string>('80000')
   const [loanTerm, setLoanTerm] = useState<string>('30')
@@ -471,6 +477,67 @@ export default function MortgageCalculator() {
             <Link href="/tools" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition duration-300 transform hover:scale-105">
               View All Financial Tools
             </Link>
+          </div>
+        </div>
+
+        {/* Author & Trust Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
+          <div>
+            {author && <AuthorByline author={author} lastUpdated="January 2026" />}
+          </div>
+          <div>
+            <TrustBadges />
+          </div>
+        </div>
+
+        {/* Disclaimer */}
+        <div className="mt-8">
+          <FinancialDisclaimer type="calculator" />
+        </div>
+
+        {/* Data Sources */}
+        <div className="mt-8 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
+          <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+            <svg className="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
+            </svg>
+            Data Sources & Methodology
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-600 dark:text-gray-300">
+            <div>
+              <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Calculation Standards:</h4>
+              <ul className="space-y-1">
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-600 mt-0.5">→</span>
+                  <span>Standard amortization formula verified by <a href="https://www.consumerfinance.gov/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Consumer Financial Protection Bureau</a></span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-600 mt-0.5">→</span>
+                  <span>PMI calculations based on industry standards (0.5-1% annually)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-600 mt-0.5">→</span>
+                  <span>Property tax data from <a href="https://www.census.gov/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">U.S. Census Bureau</a></span>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Additional Resources:</h4>
+              <ul className="space-y-1">
+                <li className="flex items-start gap-2">
+                  <span className="text-green-600 mt-0.5">→</span>
+                  <span><a href="https://www.freddiemac.com/pmms" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Freddie Mac</a> - Current mortgage rates</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-green-600 mt-0.5">→</span>
+                  <span><a href="https://www.fhfa.gov/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">FHFA</a> - Housing finance data</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-green-600 mt-0.5">→</span>
+                  <span><a href="https://www.irs.gov/credits-deductions/individuals/mortgage-interest-deduction" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">IRS</a> - Mortgage interest deduction info</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
