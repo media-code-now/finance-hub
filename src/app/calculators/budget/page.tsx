@@ -109,7 +109,7 @@ export default function BudgetCalculator() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">🏠 Housing</label>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Housing</label>
                     <input
                       type="number"
                       value={housing}
@@ -119,7 +119,7 @@ export default function BudgetCalculator() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">🚗 Transportation</label>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Transportation</label>
                     <input
                       type="number"
                       value={transportation}
@@ -129,7 +129,7 @@ export default function BudgetCalculator() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">🍽️ Food & Groceries</label>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Food & Groceries</label>
                     <input
                       type="number"
                       value={food}
@@ -139,7 +139,7 @@ export default function BudgetCalculator() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">💡 Utilities</label>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Utilities</label>
                     <input
                       type="number"
                       value={utilities}
@@ -149,7 +149,7 @@ export default function BudgetCalculator() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">🛡️ Insurance</label>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Insurance</label>
                     <input
                       type="number"
                       value={insurance}
@@ -159,7 +159,7 @@ export default function BudgetCalculator() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">🏥 Healthcare</label>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Healthcare</label>
                     <input
                       type="number"
                       value={healthcare}
@@ -169,7 +169,7 @@ export default function BudgetCalculator() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">🎬 Entertainment</label>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Entertainment</label>
                     <input
                       type="number"
                       value={entertainment}
@@ -179,7 +179,7 @@ export default function BudgetCalculator() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">💰 Savings</label>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Savings</label>
                     <input
                       type="number"
                       value={savings}
@@ -189,7 +189,7 @@ export default function BudgetCalculator() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">💳 Debt Payments</label>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Debt Payments</label>
                     <input
                       type="number"
                       value={debt}
@@ -199,7 +199,7 @@ export default function BudgetCalculator() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">📦 Other</label>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Other</label>
                     <input
                       type="number"
                       value={other}

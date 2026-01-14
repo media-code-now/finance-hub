@@ -68,7 +68,7 @@ export default function DisclaimerPage() {
 
           {/* Calculator Disclaimers */}
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">🔧 Calculator Disclaimers</h2>
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Calculator Disclaimers</h2>
             <div className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="bg-purple-50 dark:bg-purple-900/30 p-5 rounded-lg">
@@ -210,7 +210,7 @@ export default function DisclaimerPage() {
 
           {/* Information Accuracy */}
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">📚 Information Accuracy</h2>
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Information Accuracy</h2>
             <div className="bg-gray-50 dark:bg-gray-700/50 p-6 rounded-lg">
               <div className="space-y-4">
                 <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
@@ -264,7 +264,7 @@ export default function DisclaimerPage() {
 
           {/* External Links */}
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">🔗 External Links and Third Parties</h2>
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">External Links and Third Parties</h2>
             <div className="bg-yellow-50 dark:bg-yellow-900/30 p-6 rounded-lg">
               <p className="text-yellow-700 dark:text-yellow-300 leading-relaxed mb-4">
                 Our website may contain links to third-party websites or services. We are not responsible for:
@@ -280,7 +280,7 @@ export default function DisclaimerPage() {
 
           {/* Limitation of Liability */}
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">🛡️ Limitation of Liability</h2>
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Limitation of Liability</h2>
             <div className="bg-red-50 dark:bg-red-900/30 p-6 rounded-lg border border-red-200 dark:border-red-800">
               <p className="text-red-700 dark:text-red-300 leading-relaxed mb-4">
                 <strong>To the maximum extent permitted by law, Finance Hub and its operators shall not be liable for any:</strong>

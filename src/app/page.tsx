@@ -706,7 +706,7 @@ export default function Home() {
           
           <div className="text-center mt-12">
             <Link href="/blog" className="bg-blue-600 dark:bg-blue-700 text-white px-10 py-4 rounded-lg text-lg font-bold hover:bg-blue-700 dark:hover:bg-blue-800 transition duration-300 transform hover:scale-105 shadow-lg">
-              Explore All Articles 📚
+              Explore All Articles
             </Link>
           </div>
         </div>

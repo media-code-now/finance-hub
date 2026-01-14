@@ -125,7 +125,7 @@ export default function MortgageCalculator() {
           {/* Calculator Input */}
           <div className="lg:col-span-2">
             <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">🏡 Mortgage Details</h2>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Mortgage Details</h2>
               
               {/* Instructions */}
               <div className="bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-700 rounded-lg p-4 mb-8">
@@ -168,7 +168,7 @@ export default function MortgageCalculator() {
 
                   <div>
                     <label htmlFor="downPayment" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                      💵 Down Payment
+                      Down Payment
                     </label>
                     <div className="relative">
                       <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">$</span>
@@ -188,7 +188,7 @@ export default function MortgageCalculator() {
 
                   <div>
                     <label htmlFor="loanTerm" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                      📅 Loan Term
+                      Loan Term
                     </label>
                     <select
                       id="loanTerm"
@@ -223,7 +223,7 @@ export default function MortgageCalculator() {
                 <div className="space-y-6">
                   <div>
                     <label htmlFor="propertyTax" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                      🏛️ Property Tax Rate
+                      Property Tax Rate
                     </label>
                     <div className="relative">
                       <input
@@ -243,7 +243,7 @@ export default function MortgageCalculator() {
 
                   <div>
                     <label htmlFor="homeInsurance" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                      🛡️ Home Insurance (Annual)
+                      Home Insurance (Annual)
                     </label>
                     <div className="relative">
                       <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">$</span>
@@ -408,7 +408,7 @@ export default function MortgageCalculator() {
 
         {/* Related Tools */}
         <div className="mt-12 bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">🔗 Related Financial Tools</h3>
+          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Related Financial Tools</h3>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <Link href="/calculators/investment" className="block group">

@@ -256,7 +256,7 @@ export function MarketSentiment() {
             Based on {indicators.length} key indicators
           </p>
           <div className="mt-4 text-xs sm:text-sm opacity-90 bg-white/10 backdrop-blur-sm rounded-full px-4 sm:px-6 py-2 sm:py-3 inline-block border border-white/20">
-            🔄 Auto-updates every 5 minutes
+            Auto-updates every 5 minutes
           </div>
         </div>
       </div>

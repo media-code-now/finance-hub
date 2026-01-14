@@ -80,7 +80,7 @@ export default function StocksMarketPage() {
                     onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
                     className="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
                   >
-                    {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
+                    {theme === 'light' ? 'Dark' : 'Light'}
                   </button>
                 </div>
               </div>
@@ -105,13 +105,25 @@ export default function StocksMarketPage() {
               </h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {[
-                  { icon: '📊', label: 'Multiple Timeframes' },
-                  { icon: '📈', label: 'Technical Indicators' },
-                  { icon: '🎨', label: 'Drawing Tools' },
-                  { icon: '💾', label: 'Save Layouts' },
+                  { 
+                    icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>,
+                    label: 'Multiple Timeframes' 
+                  },
+                  { 
+                    icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" /></svg>,
+                    label: 'Technical Indicators' 
+                  },
+                  { 
+                    icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg>,
+                    label: 'Drawing Tools' 
+                  },
+                  { 
+                    icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" /></svg>,
+                    label: 'Save Layouts' 
+                  },
                 ].map((feature, index) => (
                   <div key={index} className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
-                    <span className="text-2xl">{feature.icon}</span>
+                    <span className="flex-shrink-0">{feature.icon}</span>
                     <span>{feature.label}</span>
                   </div>
                 ))}

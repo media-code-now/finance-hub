@@ -162,7 +162,7 @@ export default function InvestmentCalculator() {
 
                   <div>
                     <label htmlFor="monthlyContribution" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                      📅 Monthly Contribution
+                      Monthly Contribution
                     </label>
                     <div className="relative">
                       <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">$</span>
@@ -275,7 +275,7 @@ export default function InvestmentCalculator() {
           {/* Results Panel */}
           <div className="space-y-6">
             <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6">
-              <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-6">💵 Investment Results</h2>
+              <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-6">Investment Results</h2>
               
               <div className="space-y-4">
                 <div className="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/30 dark:to-emerald-900/30 border border-green-200 dark:border-green-700 rounded-lg p-4">
@@ -381,7 +381,7 @@ export default function InvestmentCalculator() {
 
         {/* Educational Content */}
         <div className="mt-12 bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">🎓 Understanding Investment Growth</h3>
+          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Understanding Investment Growth</h3>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
@@ -462,7 +462,7 @@ export default function InvestmentCalculator() {
 
         {/* Related Tools */}
         <div className="mt-12 bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">🔗 Related Financial Tools</h3>
+          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Related Financial Tools</h3>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <Link href="/calculators/retirement" className="block group">

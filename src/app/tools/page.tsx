@@ -201,7 +201,7 @@ const tools: Tool[] = [
     id: 'college',
     title: 'College Savings Calculator',
     description: 'Plan and save for your child\'s college education expenses',
-    icon: '🎓',
+    icon: 'academic-cap',
     href: '/calculators/college',
     category: 'Education',
     popular: false,
@@ -253,8 +253,8 @@ export default function ToolsPage() {
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 text-white text-4xl mb-6 shadow-2xl">
-              🛠️
+            <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 text-white mb-6 shadow-2xl">
+              <svg className="w-10 h-10" fill="currentColor" viewBox="0 0 24 24"><path fillRule="evenodd" d="M11.078 2.25c-.917 0-1.699.663-1.85 1.567L9.05 4.889c-.02.12-.115.26-.297.348a7.493 7.493 0 00-.986.57c-.166.115-.334.126-.45.083L6.3 5.508a1.875 1.875 0 00-2.282.819l-.922 1.597a1.875 1.875 0 00.432 2.385l.84.692c.095.078.17.229.154.43a7.598 7.598 0 000 1.139c.015.2-.059.352-.153.43l-.841.692a1.875 1.875 0 00-.432 2.385l.922 1.597a1.875 1.875 0 002.282.818l1.019-.382c.115-.043.283-.031.45.082.312.214.641.405.985.57.182.088.277.228.297.35l.178 1.071c.151.904.933 1.567 1.85 1.567h1.844c.916 0 1.699-.663 1.85-1.567l.178-1.072c.02-.12.114-.26.297-.349.344-.165.673-.356.985-.57.167-.114.335-.125.45-.082l1.02.382a1.875 1.875 0 002.28-.819l.923-1.597a1.875 1.875 0 00-.432-2.385l-.84-.692c-.095-.078-.17-.229-.154-.43a7.614 7.614 0 000-1.139c-.016-.2.059-.352.153-.43l.84-.692c.708-.582.891-1.59.433-2.385l-.922-1.597a1.875 1.875 0 00-2.282-.818l-1.02.382c-.114.043-.282.031-.449-.083a7.49 7.49 0 00-.985-.57c-.183-.087-.277-.227-.297-.348l-.179-1.072a1.875 1.875 0 00-1.85-1.567h-1.843zM12 15.75a3.75 3.75 0 100-7.5 3.75 3.75 0 000 7.5z" clipRule="evenodd" /></svg>
             </div>
             <h1 className="text-5xl md:text-6xl font-extrabold mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent">
               Financial Tools & Calculators
@@ -303,7 +303,7 @@ export default function ToolsPage() {
                 <div className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform group-hover:-translate-y-2 border-2 border-transparent group-hover:border-orange-400 dark:group-hover:border-orange-500">
                   <div className="absolute -top-3 -right-3">
                     <span className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                      🔥 POPULAR
+                      POPULAR
                     </span>
                   </div>
                   <div className="flex justify-center mb-4">
@@ -319,7 +319,7 @@ export default function ToolsPage() {
                   </p>
                   <div className="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-700">
                     <span className="text-xs text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 px-3 py-1.5 rounded-full font-semibold">
-                      👥 {tool.users}
+                      {tool.users}
                     </span>
                     <span className="text-blue-600 dark:text-blue-400 font-bold text-sm group-hover:text-blue-800 dark:group-hover:text-blue-300 flex items-center">
                       Try Now 
@@ -434,7 +434,7 @@ export default function ToolsPage() {
           
           {filteredTools.length === 0 ? (
             <div className="text-center py-12">
-              <div className="text-6xl mb-4">😕</div>
+              <svg className="w-16 h-16 mb-4 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
               <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">No tools found</h3>
               <p className="text-gray-600 dark:text-gray-400 mb-4">
                 Try adjusting your search terms or category filters
@@ -463,7 +463,7 @@ export default function ToolsPage() {
                       {tool.popular && (
                         <div className="absolute -top-3 -right-3 z-10">
                           <span className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-lg flex items-center gap-1">
-                            🔥 POPULAR
+                            POPULAR
                           </span>
                         </div>
                       )}
@@ -494,10 +494,10 @@ export default function ToolsPage() {
                       {/* Category and Users */}
                       <div className="mb-4 flex justify-center items-center gap-2 flex-wrap">
                         <span className="text-xs font-medium text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-900/30 px-3 py-1.5 rounded-full">
-                          📊 {tool.category}
+                          {tool.category}
                         </span>
                         <span className="text-xs font-medium text-gray-600 dark:text-gray-300 bg-gray-100 dark:bg-gray-700 px-3 py-1.5 rounded-full">
-                          👥 {tool.users}
+                          {tool.users}
                         </span>
                       </div>
 
@@ -549,7 +549,7 @@ export default function ToolsPage() {
                 </div>
               </Link>
               <Link href="/blog" className="bg-white dark:bg-gray-800 border-2 border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 px-8 py-4 rounded-lg font-bold hover:bg-blue-50 dark:hover:bg-gray-700 transition duration-300">
-                Learn More 📚
+                Learn More
               </Link>
             </div>
           </div>

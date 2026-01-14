@@ -128,7 +128,7 @@ export default function DebtPayoffCalculator() {
                     placeholder="500"
                   />
                   {results.minimumPayment !== '0' && (
-                    <p className="text-sm text-red-600 mt-2">⚠️ Minimum payment needed: ${results.minimumPayment}</p>
+                    <p className="text-sm text-red-600 mt-2">Minimum payment needed: ${results.minimumPayment}</p>
                   )}
                 </div>
 

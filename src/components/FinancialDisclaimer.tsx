@@ -7,7 +7,7 @@ interface DisclaimerProps {
 export default function FinancialDisclaimer({ type = 'general' }: DisclaimerProps) {
   const disclaimers = {
     calculator: {
-      title: '📊 Calculator Disclaimer',
+      title: 'Calculator Disclaimer',
       content: [
         'The calculations provided are estimates based on the information you enter and standard financial formulas.',
         'Results should be used for educational and planning purposes only, not as professional financial advice.',
@@ -16,7 +16,7 @@ export default function FinancialDisclaimer({ type = 'general' }: DisclaimerProp
       ]
     },
     investment: {
-      title: '⚠️ Investment Disclaimer',
+      title: 'Investment Disclaimer',
       content: [
         'Investment information is provided for educational purposes only and does not constitute investment advice.',
         'Past performance is not indicative of future results. All investments carry risk, including possible loss of principal.',
@@ -26,7 +26,7 @@ export default function FinancialDisclaimer({ type = 'general' }: DisclaimerProp
       ]
     },
     tax: {
-      title: '💼 Tax Disclaimer',
+      title: 'Tax Disclaimer',
       content: [
         'Tax information provided is general in nature and based on current tax laws, which are subject to change.',
         'Individual tax situations vary significantly. This information should not be considered tax advice.',
