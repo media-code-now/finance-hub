@@ -6,6 +6,7 @@ import { HeroImage, CardImage, AuthorAvatar } from '@/components/SimpleImage'
 import { HERO_IMAGES, FEATURE_IMAGES, getCalculatorImage, getBlogPostImage } from '@/lib/images'
 import { LivePriceCard } from '@/components/LivePriceCard'
 import { MarketSentiment } from '@/components/MarketSentiment'
+import { LiveIPOTracker } from '@/components/LiveIPOTracker'
 import { organizationSchema, financialServiceSchema } from '@/lib/schema'
 
 export default function Home() {
@@ -325,115 +326,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* IPO Card 1 */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border-2 border-purple-200 dark:border-purple-800 hover:border-purple-400 dark:hover:border-purple-600 transition-all duration-300 hover:-translate-y-1">
-              <div className="flex items-start justify-between mb-4">
-                <div>
-                  <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-1">Stripe Inc.</h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">Payment Processing</p>
-                </div>
-                <span className="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-3 py-1 rounded-full text-xs font-semibold">
-                  Upcoming
-                </span>
-              </div>
-              <div className="space-y-3">
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-600 dark:text-gray-400">Expected Date:</span>
-                  <span className="text-sm font-semibold text-gray-900 dark:text-white">Q2 2026</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-600 dark:text-gray-400">Price Range:</span>
-                  <span className="text-sm font-semibold text-gray-900 dark:text-white">$50-$55</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-600 dark:text-gray-400">Valuation:</span>
-                  <span className="text-sm font-semibold text-gray-900 dark:text-white">$50B</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-600 dark:text-gray-400">Exchange:</span>
-                  <span className="text-sm font-semibold text-gray-900 dark:text-white">NYSE</span>
-                </div>
-              </div>
-              <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
-                <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
-                  Leading online payment processing platform serving millions of businesses globally
-                </p>
-              </div>
-            </div>
-
-            {/* IPO Card 2 */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border-2 border-blue-200 dark:border-blue-800 hover:border-blue-400 dark:hover:border-blue-600 transition-all duration-300 hover:-translate-y-1">
-              <div className="flex items-start justify-between mb-4">
-                <div>
-                  <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-1">SpaceX</h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">Aerospace Technology</p>
-                </div>
-                <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full text-xs font-semibold">
-                  Rumored
-                </span>
-              </div>
-              <div className="space-y-3">
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-600 dark:text-gray-400">Expected Date:</span>
-                  <span className="text-sm font-semibold text-gray-900 dark:text-white">TBA 2026</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-600 dark:text-gray-400">Price Range:</span>
-                  <span className="text-sm font-semibold text-gray-900 dark:text-white">TBA</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-600 dark:text-gray-400">Valuation:</span>
-                  <span className="text-sm font-semibold text-gray-900 dark:text-white">$180B</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-600 dark:text-gray-400">Exchange:</span>
-                  <span className="text-sm font-semibold text-gray-900 dark:text-white">NASDAQ</span>
-                </div>
-              </div>
-              <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
-                <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
-                  Revolutionary space exploration company with satellite internet and Mars missions
-                </p>
-              </div>
-            </div>
-
-            {/* IPO Card 3 */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border-2 border-orange-200 dark:border-orange-800 hover:border-orange-400 dark:hover:border-orange-600 transition-all duration-300 hover:-translate-y-1">
-              <div className="flex items-start justify-between mb-4">
-                <div>
-                  <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-1">Reddit Inc.</h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">Social Media</p>
-                </div>
-                <span className="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-3 py-1 rounded-full text-xs font-semibold">
-                  Recently Listed
-                </span>
-              </div>
-              <div className="space-y-3">
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-600 dark:text-gray-400">IPO Date:</span>
-                  <span className="text-sm font-semibold text-gray-900 dark:text-white">Dec 2025</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-600 dark:text-gray-400">IPO Price:</span>
-                  <span className="text-sm font-semibold text-gray-900 dark:text-white">$34.00</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-600 dark:text-gray-400">Current:</span>
-                  <span className="text-sm font-semibold text-green-600 dark:text-green-400">$52.30 ▲</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-600 dark:text-gray-400">Exchange:</span>
-                  <span className="text-sm font-semibold text-gray-900 dark:text-white">NYSE</span>
-                </div>
-              </div>
-              <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
-                <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
-                  Popular social news and discussion platform with 500M+ monthly active users
-                </p>
-              </div>
-            </div>
-          </div>
+          <LiveIPOTracker />
 
           {/* CTA for more IPO info */}
           <div className="mt-12 text-center">

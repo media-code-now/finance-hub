@@ -80,11 +80,13 @@ export function EconomicCalendar() {
   const [events, setEvents] = useState<EconomicEvent[]>([])
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
   const [currentTime, setCurrentTime] = useState(new Date())
+  const [lastUpdate, setLastUpdate] = useState(new Date())
 
   useEffect(() => {
     // Update current time every minute for accurate countdowns
     const timer = setInterval(() => {
       setCurrentTime(new Date())
+      setLastUpdate(new Date())
     }, 60000)
 
     return () => clearInterval(timer)
@@ -287,6 +289,10 @@ export function EconomicCalendar() {
         <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
           Track key economic events, Fed meetings, and market-moving data releases
         </p>
+        <div className="flex items-center justify-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+          <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+          <span>Auto-updating • Last refresh: {lastUpdate.toLocaleTimeString()}</span>
+        </div>
       </div>
 
       {/* Category Filter */}
