@@ -214,62 +214,62 @@ export function MarketSentiment() {
   return (
     <div className="space-y-8">
       {/* Header */}
-      <div className="text-center space-y-4">
+      <div className="text-center space-y-4 px-4 sm:px-0">
         <div className="inline-block">
-          <h2 className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 bg-clip-text text-transparent mb-3">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 bg-clip-text text-transparent mb-3 px-4">
             Market Sentiment
           </h2>
-          <div className="h-1.5 w-40 mx-auto bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 rounded-full" />
+          <div className="h-1.5 w-32 sm:w-40 mx-auto bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 rounded-full" />
         </div>
-        <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+        <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto px-4">
           Real-time analysis of market psychology and investor sentiment
         </p>
-        <div className="flex items-center justify-center gap-4">
-          <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+          <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 backdrop-blur-xl bg-white/50 dark:bg-gray-800/50 px-4 py-2 rounded-full border border-gray-200/50 dark:border-gray-700/50">
             <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-            <span>Live • Updated {lastUpdate?.toLocaleTimeString()}</span>
+            <span className="font-medium">Live • Updated {lastUpdate?.toLocaleTimeString()}</span>
           </div>
           <button
             onClick={fetchSentimentData}
-            className="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium flex items-center gap-1 transition-colors"
+            className="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium flex items-center gap-2 transition-colors backdrop-blur-xl bg-blue-50/50 dark:bg-blue-900/20 px-4 py-2.5 rounded-full border border-blue-200/50 dark:border-blue-700/50 active:scale-95 touch-manipulation min-h-[44px]"
             title="Refresh sentiment data"
           >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
             </svg>
-            Refresh
+            Refresh Data
           </button>
         </div>
       </div>
 
       {/* Overall Sentiment Card */}
-      <div className="max-w-2xl mx-auto">
-        <div className="bg-gradient-to-br from-purple-600 via-pink-600 to-red-600 rounded-3xl shadow-2xl p-8 text-white text-center">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div className="max-w-2xl mx-auto px-4 sm:px-0">
+        <div className="bg-gradient-to-br from-purple-600 via-pink-600 to-red-600 rounded-3xl shadow-2xl p-6 sm:p-8 text-white text-center backdrop-blur-xl">
+          <div className="flex items-center justify-center gap-2 sm:gap-3 mb-4">
+            <svg className="w-8 h-8 sm:w-10 sm:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
             </svg>
-            <h3 className="text-3xl font-bold">Overall Market Sentiment</h3>
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold">Overall Market Sentiment</h3>
           </div>
-          <div className="text-6xl font-extrabold mb-2">{sentiment.label}</div>
-          <p className="text-lg opacity-90">
+          <div className="text-5xl sm:text-6xl font-extrabold mb-2">{sentiment.label}</div>
+          <p className="text-base sm:text-lg opacity-90">
             Based on {indicators.length} key indicators
           </p>
-          <div className="mt-4 text-sm opacity-90 bg-white/10 rounded-lg px-4 py-2 inline-block">
+          <div className="mt-4 text-xs sm:text-sm opacity-90 bg-white/10 backdrop-blur-sm rounded-full px-4 sm:px-6 py-2 sm:py-3 inline-block border border-white/20">
             🔄 Auto-updates every 5 minutes
           </div>
         </div>
       </div>
 
       {/* Indicators Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 px-4 sm:px-0">
         {indicators.map((indicator, index) => {
           const colors = getStatusColor(indicator.status)
           
           return (
             <div
               key={index}
-              className={`group bg-white dark:bg-gray-900 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border-2 ${colors.border}`}
+              className={`group bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 active:scale-[0.98] touch-manipulation border-2 ${colors.border}`}
             >
               {/* Header */}
               <div className={`relative bg-gradient-to-br ${colors.gradient} p-5 text-white`}>
@@ -289,7 +289,7 @@ export function MarketSentiment() {
               </div>
 
               {/* Content */}
-              <div className={`p-6 ${colors.bg}`}>
+              <div className={`p-5 sm:p-6 ${colors.bg}`}>
                 {/* Value Display */}
                 <div className="flex items-baseline justify-between mb-4">
                   <div className={`text-4xl font-extrabold ${colors.text}`}>
@@ -334,8 +334,8 @@ export function MarketSentiment() {
       </div>
 
       {/* Legend */}
-      <div className="max-w-4xl mx-auto">
-        <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-6 border border-gray-200 dark:border-gray-700">
+      <div className="max-w-4xl mx-auto px-4 sm:px-0">
+        <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl rounded-2xl shadow-xl p-5 sm:p-6 border border-gray-200 dark:border-gray-700">
           <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 text-center">
             Sentiment Scale
           </h3>

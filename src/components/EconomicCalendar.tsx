@@ -279,30 +279,30 @@ export function EconomicCalendar() {
   return (
     <div className="space-y-8">
       {/* Header */}
-      <div className="text-center space-y-4">
+      <div className="text-center space-y-4 px-4 sm:px-0">
         <div className="inline-block">
-          <h2 className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-3">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-3 px-4">
             Economic Calendar
           </h2>
-          <div className="h-1.5 w-40 mx-auto bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 rounded-full" />
+          <div className="h-1.5 w-32 sm:w-40 mx-auto bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 rounded-full" />
         </div>
-        <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+        <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto px-4">
           Track key economic events, Fed meetings, and market-moving data releases
         </p>
-        <div className="flex items-center justify-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+        <div className="flex items-center justify-center gap-2 text-sm text-gray-600 dark:text-gray-400 backdrop-blur-xl bg-white/50 dark:bg-gray-800/50 px-4 py-2 rounded-full border border-gray-200/50 dark:border-gray-700/50 inline-flex">
           <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-          <span>Auto-updating • Last refresh: {lastUpdate.toLocaleTimeString()}</span>
+          <span className="font-medium">Auto-updating • Last refresh: {lastUpdate.toLocaleTimeString()}</span>
         </div>
       </div>
 
       {/* Category Filter */}
-      <div className="flex flex-wrap items-center justify-center gap-3">
+      <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 px-4 sm:px-0">
         <button
           onClick={() => setSelectedCategory('all')}
-          className={`px-4 py-2 rounded-full font-medium transition-all ${
+          className={`px-4 py-2.5 rounded-full font-medium transition-all min-h-[44px] touch-manipulation active:scale-95 ${
             selectedCategory === 'all'
-              ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg'
-              : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+              ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg backdrop-blur-xl'
+              : 'bg-white/80 dark:bg-gray-800/80 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 backdrop-blur-xl border border-gray-200/50 dark:border-gray-700/50'
           }`}
         >
           All Events
@@ -311,20 +311,20 @@ export function EconomicCalendar() {
           <button
             key={key}
             onClick={() => setSelectedCategory(key)}
-            className={`px-4 py-2 rounded-full font-medium transition-all flex items-center gap-2 ${
+            className={`px-4 py-2.5 rounded-full font-medium transition-all flex items-center gap-2 min-h-[44px] touch-manipulation active:scale-95 ${
               selectedCategory === key
-                ? `bg-gradient-to-r ${config.color} text-white shadow-lg`
-                : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+                ? `bg-gradient-to-r ${config.color} text-white shadow-lg backdrop-blur-xl`
+                : 'bg-white/80 dark:bg-gray-800/80 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 backdrop-blur-xl border border-gray-200/50 dark:border-gray-700/50'
             }`}
           >
-            {config.icon}
-            <span>{config.name}</span>
+            <span className="hidden sm:inline">{config.icon}</span>
+            <span className="text-sm sm:text-base">{config.name}</span>
           </button>
         ))}
       </div>
 
       {/* Events Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 px-4 sm:px-0">
         {upcomingEvents.map((event) => {
           const config = categoryConfig[event.category]
           const isToday = event.status === 'today'
@@ -333,7 +333,7 @@ export function EconomicCalendar() {
           return (
             <div
               key={event.id}
-              className={`group bg-white dark:bg-gray-900 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border-2 ${
+              className={`group bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 active:scale-[0.98] touch-manipulation border-2 ${
                 isToday 
                   ? 'border-yellow-400 dark:border-yellow-500 ring-2 ring-yellow-400 ring-opacity-50' 
                   : config.borderColor
@@ -362,7 +362,7 @@ export function EconomicCalendar() {
               </div>
 
               {/* Content */}
-              <div className={`p-5 ${config.bgColor}`}>
+              <div className={`p-5 sm:p-6 ${config.bgColor}`}>
                 {/* Date & Time */}
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-2 text-gray-700 dark:text-gray-300">

@@ -171,34 +171,34 @@ export function LiveIPOTracker() {
 
   return (
     <div>
-      <div className="flex justify-between items-center mb-6">
-        <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-0 mb-6 px-2 sm:px-0">
+        <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 backdrop-blur-xl bg-white/50 dark:bg-gray-800/50 px-4 py-2 rounded-full border border-gray-200/50 dark:border-gray-700/50">
           <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-          <span>Live • Updated {lastUpdate.toLocaleTimeString()}</span>
+          <span className="font-medium">Live • Updated {lastUpdate.toLocaleTimeString()}</span>
         </div>
         <button
           onClick={fetchIPOs}
-          className="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium flex items-center gap-1"
+          className="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium flex items-center gap-2 backdrop-blur-xl bg-blue-50/50 dark:bg-blue-900/20 px-4 py-2.5 rounded-full border border-blue-200/50 dark:border-blue-700/50 active:scale-95 transition-all touch-manipulation min-h-[44px]"
         >
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
           </svg>
-          Refresh
+          Refresh Data
         </button>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 px-2 sm:px-0">
         {ipos.map((ipo) => (
           <div
             key={ipo.symbol}
-            className={`bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border-2 ${getBorderColor(ipo.status)} transition-all duration-300 hover:-translate-y-1`}
+            className={`bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-2xl shadow-lg p-5 sm:p-6 border-2 ${getBorderColor(ipo.status)} transition-all duration-300 hover:-translate-y-1 active:scale-[0.98] touch-manipulation`}
           >
-            <div className="flex items-start justify-between mb-4">
-              <div>
-                <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-1">{ipo.name}</h4>
+            <div className="flex items-start justify-between mb-5 gap-3">
+              <div className="flex-1">
+                <h4 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-1.5 leading-tight">{ipo.name}</h4>
                 <p className="text-sm text-gray-600 dark:text-gray-400">{ipo.industry}</p>
               </div>
-              <span className={`px-3 py-1 rounded-full text-xs font-semibold ${getStatusBadge(ipo.status)}`}>
+              <span className={`px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap ${getStatusBadge(ipo.status)}`}>
                 {getStatusText(ipo.status)}
               </span>
             </div>

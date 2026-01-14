@@ -312,16 +312,16 @@ export default function Home() {
       </section>
 
       {/* Upcoming IPOs Section */}
-      <section className="py-16 bg-gradient-to-br from-purple-50 to-blue-50 dark:from-gray-800 dark:to-gray-900">
+      <section className="py-12 sm:py-16 bg-gradient-to-br from-purple-50 to-blue-50 dark:from-gray-800 dark:to-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4 flex items-center justify-center gap-3">
-              <svg className="w-8 h-8 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="text-center mb-8 sm:mb-12">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 flex items-center justify-center gap-2 sm:gap-3 px-4">
+              <svg className="w-6 h-6 sm:w-8 sm:h-8 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
               </svg>
               Recent & Upcoming IPOs
             </h3>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto px-4">
               Track the latest initial public offerings and investment opportunities
             </p>
           </div>
@@ -329,20 +329,20 @@ export default function Home() {
           <LiveIPOTracker />
 
           {/* CTA for more IPO info */}
-          <div className="mt-12 text-center">
-            <div className="bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl p-8 text-white">
-              <h4 className="text-2xl font-bold mb-3">Stay Updated on IPO Opportunities</h4>
-              <p className="text-purple-100 mb-6 max-w-2xl mx-auto">
+          <div className="mt-8 sm:mt-12 px-2 sm:px-0">
+            <div className="bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl sm:rounded-3xl p-6 sm:p-8 text-white backdrop-blur-xl">
+              <h4 className="text-xl sm:text-2xl font-bold mb-3">Stay Updated on IPO Opportunities</h4>
+              <p className="text-sm sm:text-base text-purple-100 mb-6 max-w-2xl mx-auto">
                 Get alerts on upcoming IPOs, pricing updates, and market debuts. Make informed investment decisions with comprehensive IPO data.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="/blog" className="bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center justify-center">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+                <Link href="/blog" className="bg-white text-purple-600 px-6 py-3.5 rounded-xl font-semibold hover:bg-gray-100 active:scale-95 transition-all inline-flex items-center justify-center touch-manipulation min-h-[48px]">
                   View IPO News
                   <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </Link>
-                <a href="https://www.sec.gov/edgar/search-and-access" target="_blank" rel="noopener noreferrer" className="bg-purple-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors inline-flex items-center justify-center">
+                <a href="https://www.sec.gov/edgar/search-and-access" target="_blank" rel="noopener noreferrer" className="bg-purple-500 text-white px-6 py-3.5 rounded-xl font-semibold hover:bg-purple-700 active:scale-95 transition-all inline-flex items-center justify-center touch-manipulation min-h-[48px]">
                   SEC IPO Filings
                   <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -355,20 +355,20 @@ export default function Home() {
       </section>
 
       {/* Market Sentiment Indicators */}
-      <section className="py-16 bg-gray-50 dark:bg-gray-800">
+      <section className="py-12 sm:py-16 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <MarketSentiment />
         </div>
       </section>
 
       {/* Featured Financial Tools - Most Popular */}
-      <section className="py-20 bg-white dark:bg-gray-900">
+      <section className="py-12 sm:py-16 md:py-20 bg-white dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h3 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <div className="text-center mb-10 sm:mb-12 md:mb-16">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 px-4">
               Financial Tools
             </h3>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto px-4">
               Precision calculators trusted by thousands for important financial decisions
             </p>
           </div>
