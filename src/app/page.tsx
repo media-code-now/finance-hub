@@ -310,6 +310,157 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Upcoming IPOs Section */}
+      <section className="py-16 bg-gradient-to-br from-purple-50 to-blue-50 dark:from-gray-800 dark:to-gray-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4 flex items-center justify-center gap-3">
+              <svg className="w-8 h-8 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+              </svg>
+              Recent & Upcoming IPOs
+            </h3>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              Track the latest initial public offerings and investment opportunities
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* IPO Card 1 */}
+            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border-2 border-purple-200 dark:border-purple-800 hover:border-purple-400 dark:hover:border-purple-600 transition-all duration-300 hover:-translate-y-1">
+              <div className="flex items-start justify-between mb-4">
+                <div>
+                  <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-1">Stripe Inc.</h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">Payment Processing</p>
+                </div>
+                <span className="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-3 py-1 rounded-full text-xs font-semibold">
+                  Upcoming
+                </span>
+              </div>
+              <div className="space-y-3">
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-gray-600 dark:text-gray-400">Expected Date:</span>
+                  <span className="text-sm font-semibold text-gray-900 dark:text-white">Q2 2026</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-gray-600 dark:text-gray-400">Price Range:</span>
+                  <span className="text-sm font-semibold text-gray-900 dark:text-white">$50-$55</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-gray-600 dark:text-gray-400">Valuation:</span>
+                  <span className="text-sm font-semibold text-gray-900 dark:text-white">$50B</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-gray-600 dark:text-gray-400">Exchange:</span>
+                  <span className="text-sm font-semibold text-gray-900 dark:text-white">NYSE</span>
+                </div>
+              </div>
+              <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+                <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+                  Leading online payment processing platform serving millions of businesses globally
+                </p>
+              </div>
+            </div>
+
+            {/* IPO Card 2 */}
+            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border-2 border-blue-200 dark:border-blue-800 hover:border-blue-400 dark:hover:border-blue-600 transition-all duration-300 hover:-translate-y-1">
+              <div className="flex items-start justify-between mb-4">
+                <div>
+                  <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-1">SpaceX</h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">Aerospace Technology</p>
+                </div>
+                <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full text-xs font-semibold">
+                  Rumored
+                </span>
+              </div>
+              <div className="space-y-3">
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-gray-600 dark:text-gray-400">Expected Date:</span>
+                  <span className="text-sm font-semibold text-gray-900 dark:text-white">TBA 2026</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-gray-600 dark:text-gray-400">Price Range:</span>
+                  <span className="text-sm font-semibold text-gray-900 dark:text-white">TBA</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-gray-600 dark:text-gray-400">Valuation:</span>
+                  <span className="text-sm font-semibold text-gray-900 dark:text-white">$180B</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-gray-600 dark:text-gray-400">Exchange:</span>
+                  <span className="text-sm font-semibold text-gray-900 dark:text-white">NASDAQ</span>
+                </div>
+              </div>
+              <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+                <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+                  Revolutionary space exploration company with satellite internet and Mars missions
+                </p>
+              </div>
+            </div>
+
+            {/* IPO Card 3 */}
+            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border-2 border-orange-200 dark:border-orange-800 hover:border-orange-400 dark:hover:border-orange-600 transition-all duration-300 hover:-translate-y-1">
+              <div className="flex items-start justify-between mb-4">
+                <div>
+                  <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-1">Reddit Inc.</h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">Social Media</p>
+                </div>
+                <span className="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-3 py-1 rounded-full text-xs font-semibold">
+                  Recently Listed
+                </span>
+              </div>
+              <div className="space-y-3">
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-gray-600 dark:text-gray-400">IPO Date:</span>
+                  <span className="text-sm font-semibold text-gray-900 dark:text-white">Dec 2025</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-gray-600 dark:text-gray-400">IPO Price:</span>
+                  <span className="text-sm font-semibold text-gray-900 dark:text-white">$34.00</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-gray-600 dark:text-gray-400">Current:</span>
+                  <span className="text-sm font-semibold text-green-600 dark:text-green-400">$52.30 ▲</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-gray-600 dark:text-gray-400">Exchange:</span>
+                  <span className="text-sm font-semibold text-gray-900 dark:text-white">NYSE</span>
+                </div>
+              </div>
+              <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+                <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+                  Popular social news and discussion platform with 500M+ monthly active users
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* CTA for more IPO info */}
+          <div className="mt-12 text-center">
+            <div className="bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl p-8 text-white">
+              <h4 className="text-2xl font-bold mb-3">Stay Updated on IPO Opportunities</h4>
+              <p className="text-purple-100 mb-6 max-w-2xl mx-auto">
+                Get alerts on upcoming IPOs, pricing updates, and market debuts. Make informed investment decisions with comprehensive IPO data.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link href="/blog" className="bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center justify-center">
+                  View IPO News
+                  <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+                <a href="https://www.sec.gov/edgar/search-and-access" target="_blank" rel="noopener noreferrer" className="bg-purple-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors inline-flex items-center justify-center">
+                  SEC IPO Filings
+                  <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Market Sentiment Indicators */}
       <section className="py-16 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
