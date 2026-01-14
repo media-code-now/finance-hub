@@ -455,27 +455,22 @@ export default function ToolsPage() {
               {filteredTools.map((tool) => (
                 <div key={tool.id} className="group">
                   <Link href={tool.href}>
-                    <div className={`relative bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 transform group-hover:-translate-y-2 h-full ${
-                      tool.popular ? 'border-2 border-orange-200 dark:border-orange-800' : 'border border-gray-200 dark:border-gray-700'
+                    <div className={`relative bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform group-hover:-translate-y-2 h-full ${
+                      tool.popular ? 'border-2 border-orange-400 dark:border-orange-600 group-hover:border-orange-500' : 'border border-gray-200 dark:border-gray-700 group-hover:border-blue-400'
                     }`}>
                       
                       {/* Popular Badge */}
                       {tool.popular && (
-                        <div className="absolute -top-2 -right-2">
-                          <span className="bg-gradient-to-r from-orange-400 to-red-500 text-white px-3 py-1 rounded-full text-xs font-bold">
-                            <div className="flex items-center">
-                              <svg className="w-3 h-3 text-orange-400 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                                <path fillRule="evenodd" d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.879A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z" clipRule="evenodd" />
-                              </svg>
-                              POPULAR
-                            </div>
+                        <div className="absolute -top-3 -right-3 z-10">
+                          <span className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-lg flex items-center gap-1">
+                            🔥 POPULAR
                           </span>
                         </div>
                       )}
 
                       {/* Difficulty Badge */}
-                      <div className="absolute -top-2 -left-2">
-                        <span className={`px-2 py-1 rounded-full text-xs font-semibold ${
+                      <div className="absolute top-4 left-4 z-10">
+                        <span className={`px-2.5 py-1 rounded-full text-xs font-semibold shadow-md ${
                           tool.difficulty === 'Basic' ? 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200' :
                           tool.difficulty === 'Intermediate' ? 'bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200' :
                           'bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200'
@@ -484,31 +479,33 @@ export default function ToolsPage() {
                         </span>
                       </div>
 
-                      <div className="flex justify-center mb-6">
-                        <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/50 rounded-2xl flex items-center justify-center">
-                          <IconComponent iconName={tool.icon} className="w-8 h-8 text-blue-600 dark:text-blue-400" />
+                      {/* Gradient Icon */}
+                      <div className="flex justify-center mb-6 mt-8">
+                        <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                          <IconComponent iconName={tool.icon} className="w-8 h-8 text-white" />
                         </div>
                       </div>
-                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 text-center">{tool.title}</h3>
+                      
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 text-center group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{tool.title}</h3>
                       <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 leading-relaxed text-center line-clamp-3">
                         {tool.description}
                       </p>
                       
                       {/* Category and Users */}
-                      <div className="mb-4 text-center">
-                        <span className="text-xs text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 px-2 py-1 rounded mr-2">
-                          {tool.category}
+                      <div className="mb-4 flex justify-center items-center gap-2 flex-wrap">
+                        <span className="text-xs font-medium text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-900/30 px-3 py-1.5 rounded-full">
+                          📊 {tool.category}
                         </span>
-                        <span className="text-xs text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded">
-                          {tool.users}
+                        <span className="text-xs font-medium text-gray-600 dark:text-gray-300 bg-gray-100 dark:bg-gray-700 px-3 py-1.5 rounded-full">
+                          👥 {tool.users}
                         </span>
                       </div>
 
                       {/* Tags */}
                       <div className="mb-6">
-                        <div className="flex flex-wrap gap-1 justify-center">
+                        <div className="flex flex-wrap gap-2 justify-center">
                           {tool.tags.slice(0, 3).map((tag, index) => (
-                            <span key={index} className="text-xs text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-700 px-2 py-1 rounded">
+                            <span key={index} className="text-xs text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-700/50 px-2.5 py-1 rounded-md border border-gray-200 dark:border-gray-600">
                               #{tag}
                             </span>
                           ))}
@@ -516,9 +513,12 @@ export default function ToolsPage() {
                       </div>
 
                       {/* CTA Button */}
-                      <div className="text-center">
-                        <span className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition duration-300 transform group-hover:scale-105 shadow-lg inline-block">
-                          Calculate Now →
+                      <div className="text-center mt-6">
+                        <span className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg group-hover:shadow-xl">
+                          Try Now 
+                          <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                          </svg>
                         </span>
                       </div>
                     </div>
