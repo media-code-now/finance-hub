@@ -23,55 +23,56 @@ export function MarketSentiment() {
   }, [])
 
   const fetchSentimentData = () => {
-    // Simulated real-time data - in production, fetch from API
+    // Simulated real-time data with slight variations - in production, fetch from API
     const now = new Date()
+    const randomVariation = () => (Math.random() - 0.5) * 2 // -1 to +1 variation
     const sentiment: SentimentIndicator[] = [
       {
         name: 'Fear & Greed Index',
-        value: 62,
+        value: Math.max(0, Math.min(100, 62 + randomVariation())),
         status: 'greed',
         description: 'Market showing signs of greed based on 7 key indicators',
-        change: 5,
+        change: 5 + randomVariation(),
         category: 'sentiment'
       },
       {
         name: 'VIX (Volatility Index)',
-        value: 18.45,
+        value: 18.45 + randomVariation() * 0.5,
         status: 'neutral',
         description: 'Moderate volatility - normal market conditions',
-        change: -2.3,
+        change: -2.3 + randomVariation() * 0.3,
         category: 'volatility'
       },
       {
         name: 'Put/Call Ratio',
-        value: 0.87,
+        value: Math.max(0.5, 0.87 + randomVariation() * 0.1),
         status: 'greed',
         description: 'More calls than puts - bullish sentiment',
-        change: -0.12,
+        change: -0.12 + randomVariation() * 0.05,
         category: 'options'
       },
       {
         name: 'Advance/Decline Ratio',
-        value: 1.45,
+        value: Math.max(0.5, 1.45 + randomVariation() * 0.1),
         status: 'greed',
         description: 'More stocks advancing than declining',
-        change: 0.08,
+        change: 0.08 + randomVariation() * 0.05,
         category: 'breadth'
       },
       {
         name: 'Market Breadth',
-        value: 68,
+        value: Math.max(0, Math.min(100, 68 + randomVariation())),
         status: 'greed',
         description: '68% of stocks above 200-day moving average',
-        change: 3,
+        change: 3 + randomVariation(),
         category: 'breadth'
       },
       {
         name: 'High-Low Index',
-        value: 72,
+        value: Math.max(0, Math.min(100, 72 + randomVariation())),
         status: 'greed',
         description: 'Strong upward momentum in the market',
-        change: 4,
+        change: 4 + randomVariation(),
         category: 'breadth'
       }
     ]
@@ -223,6 +224,22 @@ export function MarketSentiment() {
         <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
           Real-time analysis of market psychology and investor sentiment
         </p>
+        <div className="flex items-center justify-center gap-4">
+          <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+            <span>Live • Updated {lastUpdate?.toLocaleTimeString()}</span>
+          </div>
+          <button
+            onClick={fetchSentimentData}
+            className="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium flex items-center gap-1 transition-colors"
+            title="Refresh sentiment data"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+            Refresh
+          </button>
+        </div>
       </div>
 
       {/* Overall Sentiment Card */}
@@ -238,11 +255,9 @@ export function MarketSentiment() {
           <p className="text-lg opacity-90">
             Based on {indicators.length} key indicators
           </p>
-          {lastUpdate && (
-            <div className="mt-4 text-sm opacity-75">
-              Last updated: {lastUpdate.toLocaleTimeString()}
-            </div>
-          )}
+          <div className="mt-4 text-sm opacity-90 bg-white/10 rounded-lg px-4 py-2 inline-block">
+            🔄 Auto-updates every 5 minutes
+          </div>
         </div>
       </div>
 
