@@ -2,8 +2,15 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import { ThemeToggle } from '@/components/ThemeToggle'
+import FinancialDisclaimer from '@/components/FinancialDisclaimer'
+import TrustBadges from '@/components/TrustBadges'
+import AuthorByline from '@/components/AuthorByline'
+import { getAuthor } from '@/data/authors'
 
 export default function LoanCalculator() {
+  const author = getAuthor('david-rodriguez') // CPA - Tax & Financial Planning Expert
+  
   const [loanAmount, setLoanAmount] = useState<string>('25000')
   const [interestRate, setInterestRate] = useState<string>('5.5')
   const [loanTerm, setLoanTerm] = useState<string>('5')
@@ -294,6 +301,67 @@ export default function LoanCalculator() {
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Budget Planner</h3>
               <p className="text-gray-600">Plan your budget and manage loan payments effectively.</p>
             </Link>
+          </div>
+        </div>
+
+        {/* Author & Trust Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12">
+          <div>
+            {author && <AuthorByline author={author} lastUpdated="January 2026" />}
+          </div>
+          <div>
+            <TrustBadges />
+          </div>
+        </div>
+
+        {/* Disclaimer */}
+        <div className="mt-8">
+          <FinancialDisclaimer type="calculator" />
+        </div>
+
+        {/* Data Sources */}
+        <div className="mt-8 bg-white rounded-lg border border-gray-200 p-6">
+          <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+            <svg className="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
+            </svg>
+            Data Sources & Methodology
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-600">
+            <div>
+              <h4 className="font-semibold text-gray-900 mb-2">Calculation Standards:</h4>
+              <ul className="space-y-1">
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-600 mt-0.5">→</span>
+                  <span>Standard loan amortization formulas used by <a href="https://www.consumerfinance.gov/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">CFPB</a></span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-600 mt-0.5">→</span>
+                  <span>Interest rate data from <a href="https://www.federalreserve.gov/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Federal Reserve</a></span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-600 mt-0.5">→</span>
+                  <span>APR calculations per federal Truth in Lending Act</span>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold text-gray-900 mb-2">Additional Resources:</h4>
+              <ul className="space-y-1">
+                <li className="flex items-start gap-2">
+                  <span className="text-green-600 mt-0.5">→</span>
+                  <span><a href="https://studentaid.gov/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Federal Student Aid</a> - Student loan info</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-green-600 mt-0.5">→</span>
+                  <span><a href="https://www.irs.gov/credits-deductions/individuals/interest-deduction" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">IRS</a> - Loan interest deductions</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-green-600 mt-0.5">→</span>
+                  <span><a href="https://www.ftc.gov/consumer-advice" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">FTC</a> - Consumer loan protections</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
