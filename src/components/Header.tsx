@@ -5,6 +5,7 @@ import { ThemeToggle } from '@/components/ThemeToggle'
 import { MobileMenu } from '@/components/MobileMenu'
 import { LiveStockTicker } from '@/components/LiveStockTicker'
 import { MarketStatusIndicator } from '@/components/MarketStatusIndicator'
+import Logo from '@/components/Logo'
 
 export function Header() {
   return (
@@ -13,13 +14,7 @@ export function Header() {
       <LiveStockTicker />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          <div className="flex items-center">
-            <Link href="/">
-              <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white cursor-pointer hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                Finance Hub
-              </h1>
-            </Link>
-          </div>
+          <Logo />
           <div className="flex items-center space-x-2 sm:space-x-4">
             <nav className="hidden md:flex space-x-4 lg:space-x-8">
               <Link href="/" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">
