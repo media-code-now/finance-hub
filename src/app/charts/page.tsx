@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { Header } from '@/components/Header'
 import { TradingViewWidget } from '@/components/TradingViewWidget'
+import { TopMovers } from '@/components/TopMovers'
 import Link from 'next/link'
 
 interface AssetData {
@@ -192,6 +193,11 @@ export default function StockMarketPage() {
                   autosize={true}
                 />
               </div>
+            </div>
+
+            {/* Top Movers Section */}
+            <div className="mb-12">
+              <TopMovers />
             </div>
 
             {/* Mobile Asset Grid - Below Chart on Mobile */}
