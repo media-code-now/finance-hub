@@ -1,228 +1,289 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Header } from '@/components/Header'
 import { TradingViewWidget } from '@/components/TradingViewWidget'
-import { EconomicCalendar } from '@/components/EconomicCalendar'
 import Link from 'next/link'
 
-export default function StocksMarketPage() {
-  const [selectedSymbol, setSelectedSymbol] = useState('NASDAQ:AAPL')
-  const [theme, setTheme] = useState<'light' | 'dark'>('light')
+interface AssetData {
+  symbol: string
+  name: string
+  price: number
+  change: number
+  changePercent: number
+  category: 'Stocks' | 'Crypto' | 'Indices'
+  tvSymbol: string
+}
 
-  const popularSymbols = [
-    { symbol: 'NASDAQ:AAPL', name: 'Apple', category: 'Stocks' },
-    { symbol: 'NASDAQ:TSLA', name: 'Tesla', category: 'Stocks' },
-    { symbol: 'NASDAQ:MSFT', name: 'Microsoft', category: 'Stocks' },
-    { symbol: 'NASDAQ:GOOGL', name: 'Google', category: 'Stocks' },
-    { symbol: 'NASDAQ:AMZN', name: 'Amazon', category: 'Stocks' },
-    { symbol: 'NASDAQ:META', name: 'Meta', category: 'Stocks' },
-    { symbol: 'NASDAQ:NVDA', name: 'NVIDIA', category: 'Stocks' },
-    { symbol: 'BITSTAMP:BTCUSD', name: 'Bitcoin', category: 'Crypto' },
-    { symbol: 'BITSTAMP:ETHUSD', name: 'Ethereum', category: 'Crypto' },
-    { symbol: 'BINANCE:SOLUSD', name: 'Solana', category: 'Crypto' },
-    { symbol: 'BINANCE:ADAUSD', name: 'Cardano', category: 'Crypto' },
-    { symbol: 'FOREXCOM:SPXUSD', name: 'S&P 500', category: 'Indices' },
-    { symbol: 'FOREXCOM:NSXUSD', name: 'NASDAQ 100', category: 'Indices' },
-    { symbol: 'DJ:DJI', name: 'Dow Jones', category: 'Indices' },
+export default function ChartsPage() {
+  const [selectedAsset, setSelectedAsset] = useState<AssetData>({
+    symbol: 'AAPL',
+    name: 'Apple Inc.',
+    price: 258.21,
+    change: -1.75,
+    changePercent: -0.67,
+    category: 'Stocks',
+    tvSymbol: 'NASDAQ:AAPL'
+  })
+  
+  const [theme, setTheme] = useState<'light' | 'dark'>('light')
+  const [timeframe, setTimeframe] = useState('1D')
+
+  const popularAssets: AssetData[] = [
+    { symbol: 'AAPL', name: 'Apple', price: 258.21, change: -1.75, changePercent: -0.67, category: 'Stocks', tvSymbol: 'NASDAQ:AAPL' },
+    { symbol: 'TSLA', name: 'Tesla', price: 412.50, change: 8.32, changePercent: 2.06, category: 'Stocks', tvSymbol: 'NASDAQ:TSLA' },
+    { symbol: 'MSFT', name: 'Microsoft', price: 445.89, change: 3.21, changePercent: 0.73, category: 'Stocks', tvSymbol: 'NASDAQ:MSFT' },
+    { symbol: 'GOOGL', name: 'Alphabet', price: 192.45, change: -2.15, changePercent: -1.10, category: 'Stocks', tvSymbol: 'NASDAQ:GOOGL' },
+    { symbol: 'AMZN', name: 'Amazon', price: 218.75, change: 4.50, changePercent: 2.10, category: 'Stocks', tvSymbol: 'NASDAQ:AMZN' },
+    { symbol: 'META', name: 'Meta', price: 628.30, change: 12.40, changePercent: 2.01, category: 'Stocks', tvSymbol: 'NASDAQ:META' },
+    { symbol: 'NVDA', name: 'NVIDIA', price: 145.82, change: -3.28, changePercent: -2.20, category: 'Stocks', tvSymbol: 'NASDAQ:NVDA' },
+    { symbol: 'BTC', name: 'Bitcoin', price: 102450.00, change: 1250.00, changePercent: 1.24, category: 'Crypto', tvSymbol: 'BITSTAMP:BTCUSD' },
+    { symbol: 'ETH', name: 'Ethereum', price: 3842.50, change: -45.20, changePercent: -1.16, category: 'Crypto', tvSymbol: 'BITSTAMP:ETHUSD' },
+    { symbol: 'SPX', name: 'S&P 500', price: 5995.54, change: 28.45, changePercent: 0.48, category: 'Indices', tvSymbol: 'FOREXCOM:SPXUSD' },
   ]
 
-  const categories = ['All', 'Stocks', 'Crypto', 'Indices']
-  const [selectedCategory, setSelectedCategory] = useState('All')
+  const timeframes = ['1D', '1W', '1M', '3M', '1Y', 'ALL']
 
-  const filteredSymbols = selectedCategory === 'All' 
-    ? popularSymbols 
-    : popularSymbols.filter(s => s.category === selectedCategory)
-
-  // Detect system theme
-  useState(() => {
+  useEffect(() => {
     if (typeof window !== 'undefined') {
       const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches
       setTheme(isDark ? 'dark' : 'light')
     }
-  })
+  }, [])
+
+  const isPositive = selectedAsset.change >= 0
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen bg-white dark:bg-black">
       <Header />
 
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-600 to-purple-700 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Stock Market Analytics
-            </h1>
-            <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-              Professional trading charts, real-time data, and economic calendar. Track market events and analyze stocks with advanced technical indicators.
-            </p>
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-20">
+        {/* Asset Header - Robinhood Style */}
+        <div className="mb-8">
+          <div className="flex items-start justify-between mb-6">
+            <div>
+              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-2">
+                {selectedAsset.name}
+              </h1>
+              <p className="text-lg text-gray-500 dark:text-gray-400">
+                {selectedAsset.symbol}
+              </p>
+            </div>
+            
+            {/* Theme Toggle - Minimalist */}
+            <button
+              onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+              className="p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors"
+            >
+              {theme === 'light' ? (
+                <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                </svg>
+              ) : (
+                <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+              )}
+            </button>
+          </div>
+
+          {/* Price Display - Large and Clean */}
+          <div className="mb-6">
+            <div className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-2">
+              ${selectedAsset.price.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+            </div>
+            <div className={`flex items-center text-xl font-medium ${
+              isPositive ? 'text-green-500' : 'text-red-500'
+            }`}>
+              <span className="mr-2">{isPositive ? '↑' : '↓'}</span>
+              <span>${Math.abs(selectedAsset.change).toFixed(2)}</span>
+              <span className="ml-2">({isPositive ? '+' : ''}{selectedAsset.changePercent.toFixed(2)}%)</span>
+              <span className="ml-3 text-sm text-gray-500 dark:text-gray-400 font-normal">Today</span>
+            </div>
+          </div>
+
+          {/* Timeframe Selector - Robinhood Style */}
+          <div className="flex items-center gap-1 border-b border-gray-200 dark:border-gray-800">
+            {timeframes.map((tf) => (
+              <button
+                key={tf}
+                onClick={() => setTimeframe(tf)}
+                className={`px-4 py-3 text-sm font-medium transition-colors relative ${
+                  timeframe === tf
+                    ? 'text-gray-900 dark:text-white'
+                    : 'text-gray-500 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300'
+                }`}
+              >
+                {tf}
+                {timeframe === tf && (
+                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-green-500" />
+                )}
+              </button>
+            ))}
           </div>
         </div>
-      </section>
 
-      {/* Main Chart Section */}
-      <section className="py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
-            {/* Chart Header */}
-            <div className="p-6 border-b border-gray-200 dark:border-gray-700">
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                <div>
-                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-                    {popularSymbols.find(s => s.symbol === selectedSymbol)?.name || 'Chart'}
-                  </h2>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
-                    {selectedSymbol}
-                  </p>
-                </div>
-                <div className="flex items-center gap-4">
-                  <button
-                    onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-                    className="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
-                  >
-                    {theme === 'light' ? 'Dark' : 'Light'}
-                  </button>
-                </div>
-              </div>
-            </div>
+        {/* Chart - Full Width, No Border */}
+        <div className="mb-12">
+          <div className="rounded-lg overflow-hidden" style={{ height: '500px' }}>
+            <TradingViewWidget
+              symbol={selectedAsset.tvSymbol}
+              theme={theme}
+              height={500}
+              autosize={true}
+            />
+          </div>
+        </div>
 
-            {/* TradingView Chart */}
-            <div className="p-6">
-              <div className="rounded-lg overflow-hidden" style={{ height: '600px' }}>
-                <TradingViewWidget
-                  symbol={selectedSymbol}
-                  theme={theme}
-                  height={600}
-                  autosize={true}
-                />
-              </div>
-            </div>
+        {/* Asset Grid - Robinhood Style Cards */}
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+            Popular
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            {popularAssets.map((asset) => {
+              const assetPositive = asset.change >= 0
+              return (
+                <button
+                  key={asset.symbol}
+                  onClick={() => {
+                    setSelectedAsset(asset)
+                    window.scrollTo({ top: 0, behavior: 'smooth' })
+                  }}
+                  className={`p-5 rounded-xl text-left transition-all border ${
+                    selectedAsset.symbol === asset.symbol
+                      ? 'bg-green-50 dark:bg-green-900/10 border-green-500 dark:border-green-500'
+                      : 'bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800 hover:border-gray-300 dark:hover:border-gray-700'
+                  }`}
+                >
+                  <div className="flex items-start justify-between mb-3">
+                    <div>
+                      <div className="font-bold text-gray-900 dark:text-white mb-1">
+                        {asset.symbol}
+                      </div>
+                      <div className="text-xs text-gray-500 dark:text-gray-400">
+                        {asset.name}
+                      </div>
+                    </div>
+                    <span className={`text-xs px-2 py-1 rounded-full ${
+                      asset.category === 'Crypto' 
+                        ? 'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400'
+                        : asset.category === 'Indices'
+                        ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400'
+                        : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-400'
+                    }`}>
+                      {asset.category === 'Indices' ? 'Index' : asset.category === 'Crypto' ? 'Crypto' : 'Stock'}
+                    </span>
+                  </div>
+                  
+                  <div className="text-xl font-bold text-gray-900 dark:text-white mb-1">
+                    ${asset.price.toLocaleString()}
+                  </div>
+                  
+                  <div className={`text-sm font-medium ${
+                    assetPositive ? 'text-green-500' : 'text-red-500'
+                  }`}>
+                    {assetPositive ? '+' : ''}{asset.changePercent.toFixed(2)}%
+                  </div>
+                </button>
+              )
+            })}
+          </div>
+        </div>
 
-            {/* Chart Features */}
-            <div className="p-6 bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
+        {/* About Section - Clean and Informative */}
+        <div className="border-t border-gray-200 dark:border-gray-800 pt-12">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+            About {selectedAsset.name}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
                 Chart Features
               </h3>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {[
-                  { 
-                    icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>,
-                    label: 'Multiple Timeframes' 
-                  },
-                  { 
-                    icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" /></svg>,
-                    label: 'Technical Indicators' 
-                  },
-                  { 
-                    icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg>,
-                    label: 'Drawing Tools' 
-                  },
-                  { 
-                    icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" /></svg>,
-                    label: 'Save Layouts' 
-                  },
-                ].map((feature, index) => (
-                  <div key={index} className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
-                    <span className="flex-shrink-0">{feature.icon}</span>
-                    <span>{feature.label}</span>
-                  </div>
-                ))}
-              </div>
+              <ul className="space-y-3 text-gray-600 dark:text-gray-400">
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>Real-time price updates and historical data</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>Advanced technical indicators and overlays</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>Multiple timeframes from 1 day to all-time</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>Drawing tools and chart customization</span>
+                </li>
+              </ul>
+            </div>
+            
+            <div>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+                Market Coverage
+              </h3>
+              <ul className="space-y-3 text-gray-600 dark:text-gray-400">
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-blue-500 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>US stocks including NASDAQ, NYSE, and OTC markets</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-blue-500 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>Major cryptocurrencies and digital assets</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-blue-500 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>Global market indices and ETFs</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-blue-500 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>Forex pairs and commodities</span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
-      </section>
 
-      {/* Symbol Selector */}
-      <section className="py-12 bg-white dark:bg-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-              Select Asset to Chart
-            </h2>
-            <p className="text-gray-600 dark:text-gray-400">
-              Choose from popular stocks, cryptocurrencies, and market indices
+        {/* CTA Section */}
+        <div className="mt-16 p-8 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-gray-900 dark:to-gray-800 rounded-2xl border border-green-200 dark:border-gray-700">
+          <div className="text-center max-w-2xl mx-auto">
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+              Ready to make smarter financial decisions?
+            </h3>
+            <p className="text-gray-600 dark:text-gray-400 mb-6">
+              Use our comprehensive suite of calculators to plan your financial future
             </p>
-          </div>
-
-          {/* Category Filter */}
-          <div className="flex justify-center gap-2 mb-8 flex-wrap">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
-                  selectedCategory === category
-                    ? 'bg-blue-600 text-white shadow-lg'
-                    : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
-                }`}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
-
-          {/* Symbol Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
-            {filteredSymbols.map((item) => (
-              <button
-                key={item.symbol}
-                onClick={() => {
-                  setSelectedSymbol(item.symbol)
-                  window.scrollTo({ top: 0, behavior: 'smooth' })
-                }}
-                className={`p-4 rounded-xl transition-all ${
-                  selectedSymbol === item.symbol
-                    ? 'bg-blue-600 text-white shadow-lg transform scale-105'
-                    : 'bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600 hover:shadow-md'
-                }`}
-              >
-                <div className="text-sm font-semibold mb-1">{item.name}</div>
-                <div className={`text-xs ${
-                  selectedSymbol === item.symbol 
-                    ? 'text-blue-100' 
-                    : 'text-gray-500 dark:text-gray-400'
-                }`}>
-                  {item.category}
-                </div>
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Economic Calendar */}
-      <section className="py-16 bg-white dark:bg-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <EconomicCalendar />
-        </div>
-      </section>
-
-      {/* Call to Action */}
-      <section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-900 dark:to-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-            Need More Financial Tools?
-          </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
-            Explore our comprehensive suite of calculators and analytical tools
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/calculators"
-              className="px-8 py-4 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-colors shadow-lg"
+              className="inline-flex items-center px-8 py-4 bg-green-500 text-white rounded-full font-semibold hover:bg-green-600 transition-all shadow-lg hover:shadow-xl"
             >
-              Financial Calculators
-            </Link>
-            <Link
-              href="/tools"
-              className="px-8 py-4 bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-xl font-semibold hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors shadow-lg border border-gray-200 dark:border-gray-700"
-            >
-              More Tools
+              Explore Calculators
+              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
             </Link>
           </div>
         </div>
-      </section>
+      </div>
     </div>
   )
 }
