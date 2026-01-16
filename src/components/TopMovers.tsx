@@ -25,26 +25,58 @@ export function TopMovers() {
 
   const fetchTopMovers = async () => {
     try {
-      // Simulate fetching top movers data
-      // In production, this would call a real API
-      const mockGainers: MoverData[] = [
-        { symbol: 'NVDA', name: 'NVIDIA Corp', price: 145.82, change: 8.45, changePercent: 6.15, volume: 45800000 },
-        { symbol: 'AMD', name: 'Advanced Micro Devices', price: 178.32, change: 9.12, changePercent: 5.39, volume: 38200000 },
-        { symbol: 'TSLA', name: 'Tesla Inc', price: 412.50, change: 18.75, changePercent: 4.76, volume: 52100000 },
-        { symbol: 'META', name: 'Meta Platforms', price: 628.30, change: 24.50, changePercent: 4.06, volume: 28900000 },
-        { symbol: 'NFLX', name: 'Netflix Inc', price: 542.18, change: 19.82, changePercent: 3.79, volume: 12400000 },
+      // Fetch real stock data for multiple symbols
+      const symbols = [
+        { symbol: 'NVDA', name: 'NVIDIA Corp' },
+        { symbol: 'AMD', name: 'Advanced Micro Devices' },
+        { symbol: 'TSLA', name: 'Tesla Inc' },
+        { symbol: 'META', name: 'Meta Platforms' },
+        { symbol: 'NFLX', name: 'Netflix Inc' },
+        { symbol: 'AAPL', name: 'Apple Inc' },
+        { symbol: 'MSFT', name: 'Microsoft Corp' },
+        { symbol: 'GOOGL', name: 'Alphabet Inc' },
+        { symbol: 'AMZN', name: 'Amazon.com Inc' },
+        { symbol: 'JPM', name: 'JPMorgan Chase' },
+        { symbol: 'BA', name: 'Boeing Co' },
+        { symbol: 'DIS', name: 'Walt Disney' },
+        { symbol: 'V', name: 'Visa Inc' },
+        { symbol: 'WMT', name: 'Walmart Inc' },
+        { symbol: 'COIN', name: 'Coinbase Global' },
       ]
 
-      const mockLosers: MoverData[] = [
-        { symbol: 'AAPL', name: 'Apple Inc', price: 258.21, change: -8.45, changePercent: -3.17, volume: 39400000 },
-        { symbol: 'MSFT', name: 'Microsoft Corp', price: 445.89, change: -12.34, changePercent: -2.69, volume: 24800000 },
-        { symbol: 'GOOGL', name: 'Alphabet Inc', price: 192.45, change: -4.85, changePercent: -2.46, volume: 18600000 },
-        { symbol: 'AMZN', name: 'Amazon.com Inc', price: 218.75, change: -5.12, changePercent: -2.29, volume: 31200000 },
-        { symbol: 'JPM', name: 'JPMorgan Chase', price: 224.18, change: -4.28, changePercent: -1.87, volume: 14900000 },
-      ]
+      // Fetch data for all symbols in parallel
+      const promises = symbols.map(async ({ symbol, name }) => {
+        try {
+          const response = await fetch(`/api/price?symbol=${symbol}`)
+          if (!response.ok) throw new Error('API error')
+          const data = await response.json()
+          
+          return {
+            symbol,
+            name,
+            price: data.price || 0,
+            change: data.change || 0,
+            changePercent: data.changePercent || 0,
+            volume: data.volume || 0,
+          }
+        } catch (err) {
+          console.error(`Error fetching ${symbol}:`, err)
+          return null
+        }
+      })
 
-      setGainers(mockGainers)
-      setLosers(mockLosers)
+      const results = await Promise.all(promises)
+      const validResults = results.filter((r): r is MoverData => r !== null && r.price > 0)
+
+      // Sort by changePercent
+      const sorted = [...validResults].sort((a, b) => b.changePercent - a.changePercent)
+      
+      // Get top 5 gainers and losers
+      const topGainers = sorted.filter(s => s.changePercent > 0).slice(0, 5)
+      const topLosers = sorted.filter(s => s.changePercent < 0).slice(-5).reverse()
+
+      setGainers(topGainers)
+      setLosers(topLosers)
       setLoading(false)
     } catch (error) {
       console.error('Error fetching top movers:', error)
