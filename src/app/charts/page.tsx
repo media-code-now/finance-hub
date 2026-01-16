@@ -15,7 +15,7 @@ interface AssetData {
   tvSymbol: string
 }
 
-export default function ChartsPage() {
+export default function StockMarketPage() {
   const [selectedAsset, setSelectedAsset] = useState<AssetData>({
     symbol: 'AAPL',
     name: 'Apple Inc.',

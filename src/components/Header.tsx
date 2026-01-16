@@ -44,7 +44,7 @@ export function Header() {
                 href="/charts" 
                 className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-xl text-sm font-medium transition-colors touch-target"
               >
-                Charts
+                Stock Market
               </Link>
               <Link 
                 href="/blog" 
